@@ -28,3 +28,14 @@ const userSchema = new Schema({
         }
     }
 })
+
+// add a mongoose pre-save hook to hash the password anytime the password has changed
+userSchema.pre('save', async function(next) {
+    // 'this' is the user document that is being saved
+    if (!this.isModified('password')) return next()
+    // update the password with a computed hashed version
+    this.password = await bcrypt.hash(this.password, SALT_ROUNDS)
+    return next()
+})
+
+module.exports = mongoose.model('User', userSchema)
