@@ -18,5 +18,13 @@ const userSchema = new Schema({
         required: true
     }, 
 }, {
-    timestamps: true
+    timestamps: true,
+    // hash the password only, dont serialize/convert to string the password
+    // we can compare the password in the controller by hash it again and compare 2 passwords
+    toJSON: {
+        transform: function(doc, ret) {
+            delete ret.password
+            return ret
+        }
+    }
 })
