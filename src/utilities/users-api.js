@@ -1,3 +1,5 @@
+import sendRequest from './send-request'
+
 // this is the base path of the Express route that we define
 const BASE_URL = '/api/users'
 
