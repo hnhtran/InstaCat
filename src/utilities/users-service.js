@@ -20,7 +20,19 @@ export function logOut() {
 
 // ================== Helper functions ==================
 // getToken
-
+export function getToken() {
+    // getItem return null if there is no key
+    const token = localStorage.getItem('token')
+    if(!token) return null
+    // else if there is a token, return it
+    const payload = JSON.parse(window.atob(token.split('.')[1]))
+    // if token expires, return null, if not return token
+    if (payload.exp < Date.now() / 1000) {
+        localStorage.removeItem('token')
+        return null
+    }
+    return token
+}
 // getUser
 export function getUser() {
     const token = getToken()
