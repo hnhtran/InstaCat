@@ -17,3 +17,13 @@ export async function login(credentials) {
 export function logOut() {
     localStorage.removeItem('token')
 }
+
+// ================== Helper functions ==================
+// getToken
+
+// getUser
+export function getUser() {
+    const token = getToken()
+    // token have 3 parts, header, payload, and sth, they seperate by '.' , payload is data we want at index[1] of course
+    return token ? JSON.parse(window.atob(token.split('.'[1]))).user : null
+}
