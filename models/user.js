@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
+const SALT_ROUNDS = 6
+
 const userSchema = new Schema({
     name: {type: String, required: true},
     email: {
@@ -34,7 +36,7 @@ userSchema.pre('save', async function(next) {
     // 'this' is the user document that is being saved
     if (!this.isModified('password')) return next()
     // update the password with a computed hashed version
-    this.password = await bcrypt.hash(this.password, SALT_ROUNDS)
+    this.password = await bcrypt.hash(this.password, SALT_ROUNDS) // SALT_ROUNDS determine how much processing time it will take to perform the hash
     return next()
 })
 
