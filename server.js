@@ -5,6 +5,9 @@ const logger = require('morgan');
 
 // Always require and configure near the top
 require('dotenv').config()
+// Connect to the server
+// Make sure that dotenv is already required
+require('./config/database')
 
 const app = express()
 
@@ -28,5 +31,5 @@ app.get('/*', (req, res) => {
 // to avoid conflicting with the react server
 const port = process.env.PORT || 3001
 app.listen(port, () => {
-    console.log(`Listening on port ${port}`)
+    console.log(`Listening, express app on port ${port}`)
 })
