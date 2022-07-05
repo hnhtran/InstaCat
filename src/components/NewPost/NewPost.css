@@ -37,3 +37,9 @@
 .newPostHr {
     margin: 20px
 }
+
+.newPostsBottom {
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+}
