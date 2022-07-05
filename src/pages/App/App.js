@@ -11,10 +11,18 @@ export default function App() {
   
   return (
     <div className="App">
+    { user ?
+    <>
     <NavBar user={user} setUser={setUser} />
+    <Routes>
+      <Route></Route>
+      <Route></Route>
+    </Routes>
       App
-      {/* <Test /> */}
-      <AuthPage />
+    </>
+    :
+      <AuthPage setUser={setUser} />
+    }
     </div>
   );
 }
