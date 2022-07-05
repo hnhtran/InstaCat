@@ -1,6 +1,5 @@
 import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
-// import Test from './Test';
 import AuthPage from '../AuthPage/AuthPage';
 
 export default function App() {
