@@ -32,5 +32,10 @@
 }
 
 .postCenter {
-    margin: 20px 0;
+	margin: 20px 0;
+}
+
+.postImg {
+    margin-top: 20px;
+    width: 100%;
 }

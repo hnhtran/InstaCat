@@ -18,6 +18,7 @@ export default function Post({ user }) {
 
 					<div className='postCenter'>
 						<span className='postText'>Testing!</span>
+                        <img src="" alt="" />
 					</div>
 					<div className='postBottom'>
 						<div className='postBottomLeft'>
