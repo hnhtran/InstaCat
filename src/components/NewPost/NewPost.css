@@ -43,3 +43,15 @@
 	align-items: center;
     justify-content: space-between;
 }
+
+.newPostsOptions {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.options {
+    display: flex;
+    
+}
