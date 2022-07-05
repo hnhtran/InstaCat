@@ -1,5 +1,5 @@
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate"
-
+import { AddPhotoAlternateIcon } from "@mui/icons-material/AddPhotoAlternate"
+import "./NewPost.css"
 export default function NewPost() {
 	return (
 		<>
