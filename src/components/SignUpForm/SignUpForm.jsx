@@ -34,9 +34,7 @@ export default class SignUpForm extends Component {
     });
   };
 
-  // Must override the render method
-  // The render method take the place of a function component
-  // That is, it will ultimately return its UI as JSX
+  
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
