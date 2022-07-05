@@ -12,13 +12,14 @@ export default function NavBar() {
   //     // Update state will also cause a re-render
   //     setUser(null);
   //   }
+  
   return (
     <div class="header">
   <a href="#default" class="logo">InstaCat</a>
   <div class="header-right">
-    <a class="active" href="#home"><img src="../images/newposticon.png" className="icon" alt="" /></a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
+    <a class="active" href="#home"><img src="../../../public/images/homeicon.png" className="icon" alt="" /></a>
+    <a href="#contact"><img src="images/newposticon.png" className="icon" alt="" /></a>
+    <a href="#about"><img src="../../images/usericon.png" className='icon' alt="" /></a>
   </div>
 </div>
   );
