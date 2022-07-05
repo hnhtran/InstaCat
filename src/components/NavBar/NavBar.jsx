@@ -15,7 +15,7 @@ export default function NavBar({user, setUser}) {
   
   return (
     <div className="header">
-      {/* <Link to=""><img src="images/homeicon.png" className="icon" alt=""/></Link> */}
+      <Link to=""><img src="images/homeicon.png" className="icon" alt=""/></Link>
       <Link to="">TEST</Link>
       <Link to=""><img src="images/newposticon.png" className="icon" alt=""/></Link>
       Welcome, {user.name}
