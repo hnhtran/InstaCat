@@ -7,11 +7,12 @@ import { getUser } from '../../utilities/users-service';
 
 export default function App() {
 
-  const [user, setUser] = useState(getUser())
+  // const [user, setUser] = useState(getUser())
   
   return (
     <div className="App">
-    <NavBar user={user} setUser={setUser} />
+    {/* <NavBar user={user} setUser={setUser} /> */}
+    <NavBar />
       App
       {/* <Test /> */}
       <AuthPage />
