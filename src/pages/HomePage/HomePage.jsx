@@ -1,16 +1,16 @@
-import NavBar from '../../components/NavBar/NavBar'
-import Sidebar from '../../components/SideBar/SideBar'
+// import NavBar from '../../components/NavBar/NavBar'
+// import Sidebar from '../../components/SideBar/SideBar'
 import Feed from '../../components/Feed/Feed'
-import Footer from '../../components/Footer/Footer'
+// import Footer from '../../components/Footer/Footer'
 
 export default function Home() {
 	return (
 		<>
-			<NavBar />
+			{/* <NavBar /> */}
 			<div className='home'>
-				<Sidebar />
+				{/* <Sidebar /> */}
 				<Feed />
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		</>
 	)
