@@ -17,7 +17,7 @@ export default function App() {
           <>
             {/* <NavBar user={user} setUser={setUser} /> */}
             <NavBar />
-            {/* <HomePage /> */}
+            <HomePage />
             {/* <Footer /> */}
           </>
         ) : (

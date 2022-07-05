@@ -28,7 +28,7 @@
 	width: 80%;
 }
 
-.newPostInput {
+.newPostInput:focus {
 	outline: none;
 }
 

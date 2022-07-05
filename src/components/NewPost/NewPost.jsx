@@ -1,4 +1,4 @@
-// import { AddPhotoAlternateIcon } from "@mui/icons-material/AddPhotoAlternate"
+import { AddAPhoto } from "@mui/icons-material/"
 import "./NewPost.css"
 export default function NewPost() {
 	return (
@@ -6,14 +6,14 @@ export default function NewPost() {
 			<div className='newPosts'>
 				<div className='newPostsContainer'>
 					<div className='newPostsTop'>
-						<img className='postsProfileimg' src='' alt='' />
+						<img className='postsProfileimg' src='' alt='Add Photo' />
 						<input placeholder='Show us your cats!' className='newPostInput' />
 					</div>
 					<hr className='newPostHr' />
 					<div className='newPostsBottom'>
 						<div className='newPostsOptions'>
 							<div className='option'>
-								{/* <AddPhotoAlternateIcon /> */}
+								<AddAPhoto  />
 								<span className='newPostsText'>Photo</span>
 							</div>
 						</div>
