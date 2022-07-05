@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import HomePage from "../HomePage/HomePage";
+import Footer from "../../components/Footer/Footer"
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -14,7 +15,10 @@ export default function App() {
       {
         user ? (
           <>
-            <NavBar user={user} setUser={setUser} />
+            {/* <NavBar user={user} setUser={setUser} /> */}
+            <NavBar />
+            {/* <HomePage /> */}
+            {/* <Footer /> */}
           </>
         ) : (
           <AuthPage setUser={setUser} />
