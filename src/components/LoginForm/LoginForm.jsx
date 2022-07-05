@@ -28,11 +28,12 @@ export default function LoginForm({ setUser }) {
   return (
     <div>
       <div className="form-container" onSubmit={handleSubmit}>
+          <h1>Instacats</h1>
         <form autoComplete="off" >
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+          <label></label>
+          <input type="text" placeholder='Email' name="email" value={credentials.email} onChange={handleChange} required />
+          <label></label>
+          <input type="password" placeholder='Password' name="password" value={credentials.password} onChange={handleChange} required />
           <button type="submit">LOG IN</button>
         </form>
       </div>
