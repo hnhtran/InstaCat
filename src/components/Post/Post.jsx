@@ -15,7 +15,9 @@ export default function Post({ user }) {
 						</div>
 					</div>
 
-					<div className='postCenter'></div>
+					<div className='postCenter'>
+                        <span className="postText">Testing!</span>
+                    </div>
 					<div className='postBottom'></div>
 				</div>
 			</div>
