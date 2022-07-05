@@ -24,34 +24,31 @@
 }
 
 .newPostInput {
-    border: none;
-    width: 80%;
-
-
+	border: none;
+	width: 80%;
 }
 
 .newPostInput {
-    outline: none;
+	outline: none;
 }
 
 .newPostHr {
-    margin: 20px
+	margin: 20px;
 }
 
 .newPostsBottom {
 	display: flex;
 	align-items: center;
-    justify-content: space-between;
+	justify-content: space-between;
 }
 
 .newPostsOptions {
-    display: flex;
-    align-items: center;
-    margin-right: 15px;
-    cursor: pointer;
+	display: flex;
 }
 
-.options {
-    display: flex;
-    
+.option {
+	display: flex;
+	align-items: center;
+	margin-right: 15px;
+	cursor: pointer;
 }

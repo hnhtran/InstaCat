@@ -12,7 +12,7 @@ export default function NewPost() {
 					<hr className='newPostHr' />
 					<div className='newPostsBottom'>
 						<div className='newPostsOptions'>
-							<div className='options'>
+							<div className='option'>
 								<AddPhotoAlternateIcon />
 								<span className='newPostsText'>Photo</span>
 							</div>
