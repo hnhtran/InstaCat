@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Style the header with a grey background and some padding */
 .header {
 	overflow: hidden;
@@ -66,4 +67,14 @@
 * {
 	font-family: "Itim", cursive;
 	font-size: 20px;
+=======
+.icon{
+  width: 2em;
+  height: 2em;
+}
+.navbar-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+>>>>>>> main
 }
