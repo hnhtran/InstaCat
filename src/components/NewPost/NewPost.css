@@ -25,5 +25,15 @@
 
 .newPostInput {
     border: none;
-    
+    width: 80%;
+
+
+}
+
+.newPostInput {
+    outline: none;
+}
+
+.newPostHr {
+    margin: 20px
 }
