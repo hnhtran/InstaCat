@@ -4,6 +4,8 @@ import AuthPage from '../AuthPage/AuthPage';
 import { useState } from "react";
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
+import HomePage from '../HomePage/HomePage'
+ 
 
 export default function App() {
 
@@ -11,11 +13,20 @@ export default function App() {
   
   return (
     <div className="App">
+    {/* { user ?
+    <> */}
     {/* <NavBar user={user} setUser={setUser} /> */}
-    <NavBar />
+    {/* <NavBar />
+    <Routes>
+      <Route path="/home" element={<HomePage />} />
+      <Route path="" element={<UserProfilePage />}/>
+    </Routes> */}
       App
-      {/* <Test /> */}
-      <AuthPage />
+    {/* </> */}
+    {/* : */}
+      {/* <AuthPage setUser={setUser} /> */}
+      <AuthPage/>
+    {/* } */}
     </div>
   );
 }
