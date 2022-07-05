@@ -14,11 +14,12 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      
+  
       const formData = {...this.state};
       delete formData.error;
       delete formData.confirm;
       const user = await signUp(formData);
+      console.log(user)
       this.props.setUser(user);
     } catch {
       
