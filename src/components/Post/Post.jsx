@@ -1,5 +1,6 @@
 import "./Post.css"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
+import FavoriteIcon from "@mui/icons-material/Favorite"
 export default function Post({ user }) {
 	return (
 		<>
@@ -16,9 +17,17 @@ export default function Post({ user }) {
 					</div>
 
 					<div className='postCenter'>
-                        <span className="postText">Testing!</span>
-                    </div>
-					<div className='postBottom'></div>
+						<span className='postText'>Testing!</span>
+					</div>
+					<div className='postBottom'>
+						<div className='postBottomLeft'>
+							<FavoriteIcon />
+                            <span className='postFavorites'>9 likes</span>
+						</div>
+						<div className='postBottomRight'>
+                            <span className="postComment">2 comments</span>
+                        </div>
+					</div>
 				</div>
 			</div>
 		</>
