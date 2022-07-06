@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import HomePage from "../HomePage/HomePage";
 import Footer from "../../components/Footer/Footer"
+import SideBar from "../../components/SideBar/SideBar"
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -16,14 +17,15 @@ export default function App() {
         user ? (
           <>
             <NavBar user={user} setUser={setUser} />
-            {/* <NavBar /> */}
-            <HomePage />
+            <div className="home-page">
+            <HomePage user={user} />
+            <SideBar />
+            </div>
             <Footer />
           </>
         ) : (
           <AuthPage setUser={setUser} />
         )
-        // <AuthPage/>
       }
     </div>
   );

@@ -2,22 +2,31 @@
   text-align: center;
 }
 
+/* .home-page{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+  padding: 2em;
+  gap: 5em;
+}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (max-width: 600px) {
+  .home-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-}
+}  */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
+/* Large devices (laptops/desktops, 992px and up)
+@media only screen and (min-width: 992px) {
+
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {
+
+} */
 

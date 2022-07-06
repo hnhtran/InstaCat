@@ -2,6 +2,12 @@
   width: 2.5em;
   height: 2.5em;
 }
+
+.icon:hover{
+  width: 3em;
+  height: 3em;
+}
+
 .navbar-container{
   display: flex;
   justify-content: space-between;
@@ -19,3 +25,14 @@
 * {
   font-family: 'Itim', cursive;
 }
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .navbar-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c49474;
+    padding: 1em;
+  }
+} 
