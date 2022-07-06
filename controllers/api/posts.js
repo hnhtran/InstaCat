@@ -7,7 +7,8 @@ module.exports = {
     index,
     showPost,
     updatePost,
-    deletePost
+    deletePost,
+    likePost
 }
 // createPost
 async function createPost(req, res) {
@@ -65,6 +66,25 @@ async function deletePost(req, res) {
             await Post.findByIdAndDelete(postId)
             res.json({ message: 'Post deleted' })
         }
+    } catch (err) {
+        res.json(err)
+    }
+}
+// like or unlike a post
+async function likePost(req, res) {
+    const userId = req.user._id
+    const postId = req.params.id
+    try {
+        const post = await Post.findById(postId)
+        // like: push, dislike: splice
+        if (post.likes.includes(userId)) {
+            const index = post.likes.indexOf(userId)
+            post.likes.splice(index, 1)
+        } else {
+            post.likes.push(userId)
+        }
+        await post.save()
+        res.json(post)
     } catch (err) {
         res.json(err)
     }
