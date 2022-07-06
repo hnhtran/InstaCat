@@ -11,7 +11,7 @@ export default function Home({user}) {
     <>
       {/* <NavBar /> */}
       <div className="home">
-        <Feed user={user}/>
+        <Feed user={user} post={post} setPost={setPost}/>
         <Sidebar />
       </div>
       {/* <Footer /> */}
