@@ -2,8 +2,20 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const postSchema = mongoose.Schema({
-    description: String,
-    selectedFile: String
+    userId: {
+        type: String,
+        required: true
+    },
+    likes: [],
+    description: {
+        type:   String,
+        required: true
+    },
+    image: String,
+    createdAt: {
+        type: Date,
+        default: new Date()
+    }
 }, {
     timestamps: true
 })
