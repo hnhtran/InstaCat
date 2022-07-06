@@ -1,6 +1,7 @@
 .icon{
   width: 2.5em;
   height: 2.5em;
+  margin: .25em;
 }
 
 .icon:hover{
@@ -10,16 +11,19 @@
 
 .navbar-container{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #c49474;
-  padding: 1.5em;
+  position: fixed;
+  /* left: 0;
+  top: 0; */
+  width: 100%;
 }
 
 .icons{
   display: flex;
   justify-content: space-evenly;
-  gap: 2em;
+  gap: 1em;
 }
 
 * {

@@ -21,7 +21,6 @@ export default function App() {
             <Routes>
             <Route exact path='/' element={<div className="home-page">
             <HomePage user={user} />
-            <SideBar />
             </div>}></Route>
               <Route exact path='/settings' element={< UserSettingPage />}></Route>
              </Routes>
