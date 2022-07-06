@@ -1,6 +1,8 @@
+import { SevenKRounded } from "@mui/icons-material"
 import NewPost from "../NewPost/NewPost"
 import Posts from "../Posts/Posts"
-export default function Feed({user}) {
+import SeededData from "../../SeededData"
+export default function Feed() {
 	return (
 		<>
 			<div className='feed'>

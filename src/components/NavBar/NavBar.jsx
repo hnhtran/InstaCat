@@ -1,16 +1,16 @@
-import './NavBar.css'
-import React from 'react'
-import { Link } from 'react-router-dom';
-import * as userService from '../../utilities/users-service';
-import { PropaneSharp } from '@mui/icons-material';
+import "./NavBar.css"
+import React from "react"
+import { Link } from "react-router-dom"
+import * as userService from "../../utilities/users-service"
+import { PropaneSharp } from "@mui/icons-material"
 
-const NavBar = ({user, setUser}) => {
-  function handleLogOut() {
-    // Delegate to the users-service
-    userService.logOut();
-    // Update state will also cause a re-render
-    setUser(null);
-  }
+const NavBar = ({ user, setUser }) => {
+	function handleLogOut() {
+		// Delegate to the users-service
+		userService.logOut()
+		// Update state will also cause a re-render
+		setUser(null)
+	}
 
   return (
     <div className='navbar-container'>
