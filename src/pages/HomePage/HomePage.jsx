@@ -3,8 +3,10 @@ import Sidebar from "../../components/SideBar/SideBar";
 import Feed from "../../components/Feed/Feed";
 // import Footer from "../../components/Footer/Footer";
 import './HomePage.css'
+import { useState } from "react";
 
 export default function Home({user}) {
+	const [post, setPost] = useState('')
   return (
     <>
       {/* <NavBar /> */}
