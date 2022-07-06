@@ -5,7 +5,7 @@ import { useState } from "react";
 import { createPost } from '../../utilities/posts-api'
 
 
-export default function NewPost({user}) {
+export default function NewPost({user, post, setPost}) {
 	console.log(user)
   const [postData, setPostData] = useState({
 	userId: user._id,
@@ -28,8 +28,9 @@ export default function NewPost({user}) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		// console.log(postData)
-		const post = await createPost(postData)
-		console.log(post)
+		const newPost = await createPost(postData)
+		// console.log(post)
+		setPost(newPost)
 	}
 
 	const [image, setImage] = useState(null);
@@ -81,10 +82,6 @@ export default function NewPost({user}) {
       </div>
       <div>
       </div>
-	  <div>
-		<img src={imageUrl} alt=''/>
-		
-	  </div>
     </>
   );
 }

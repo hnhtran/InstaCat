@@ -1,6 +1,6 @@
 footer {
     background-color: #c49474;
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
@@ -11,7 +11,7 @@ footer {
     width: 3em;
     height: 3em;
     border-radius: 50%;
-    margin: 0.5em;
+    margin: 0.25em;
 }
 
 .creator:hover{
