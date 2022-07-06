@@ -5,7 +5,9 @@ const User = require('../../models/user')
 module.exports = {
     createPost,
     index,
-    show,
+    showPost,
+    updatePost,
+    deletePost
 }
 // createPost
 async function createPost(req, res) {
@@ -27,7 +29,7 @@ async function index(req, res) {
     }
 }
 // get/show a post by id
-async function show(req, res) {
+async function showPost(req, res) {
     try {
         const post = await Post.findById(req.params.id)
         res.json(post)
@@ -36,7 +38,7 @@ async function show(req, res) {
     }
 }
 //update a post
-async function update(req, res) {
+async function updatePost(req, res) {
     const userId = req.user._id
     const postId = req.params.id
     try {
@@ -46,6 +48,22 @@ async function update(req, res) {
         } else {
             const updatedPost = await Post.findByIdAndUpdate(postId, req.body, { new: true })
             res.json(updatedPost)
+        }
+    } catch (err) {
+        res.json(err)
+    }
+}
+// delete a post
+async function deletePost(req, res) {
+    const userId = req.user._id
+    const postId = req.params.id
+    try {
+        const post = await Post.findById(postId)
+        if (post.userId !== userId) {
+            res.status(401).json({ message: 'Unauthorized delete' })
+        } else {
+            await Post.findByIdAndDelete(postId)
+            res.json({ message: 'Post deleted' })
         }
     } catch (err) {
         res.json(err)
