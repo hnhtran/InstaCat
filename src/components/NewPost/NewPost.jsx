@@ -31,6 +31,15 @@ export default function NewPost({user}) {
 		// createPost(postData)
 	}
 
+	const [image, setImage] = useState(null);
+	const [imageUrl, setImageUrl] = useState(null);
+	const onImageChange = (e) => {
+		setImage(e.target.files[0]);
+		setImageUrl(URL.createObjectURL(e.target.files[0]));
+		console.log(imageUrl)
+		console.log(image)
+	}
+
   return (
     <>
       <div className="newPosts" onSubmit={handleSubmit}>
@@ -60,7 +69,7 @@ export default function NewPost({user}) {
 					name='image'
                     onDone={({ base64 }) => setPostData({...postData, image: base64})}
                   /> */}
-				  <input type='file' />
+				  <input type='file' onChange={onImageChange}/>
                 </div>
               </div>
               <button type="submit">Add post</button>
@@ -70,6 +79,9 @@ export default function NewPost({user}) {
       </div>
       <div>
       </div>
+	  <div>
+		<img src={imageUrl} alt=''/>
+	  </div>
     </>
   );
 }
