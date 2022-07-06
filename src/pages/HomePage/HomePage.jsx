@@ -3,13 +3,13 @@
 import Feed from '../../components/Feed/Feed'
 // import Footer from '../../components/Footer/Footer'
 
-export default function Home() {
+export default function Home({user}) {
 	return (
 		<>
 			{/* <NavBar /> */}
 			<div className='home'>
 				{/* <Sidebar /> */}
-				<Feed />
+				<Feed user={user}/>
 				{/* <Footer /> */}
 			</div>
 		</>

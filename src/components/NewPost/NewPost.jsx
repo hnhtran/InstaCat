@@ -2,10 +2,13 @@ import { AddAPhoto } from "@mui/icons-material/";
 import "./NewPost.css";
 import FileBase64 from "react-file-base64";
 import { useState } from "react";
+import { createPost } from '../../utilities/posts-api'
 
 
-export default function NewPost() {
+export default function NewPost({user}) {
+	console.log(user)
   const [postData, setPostData] = useState({
+	userId: user._id,
     description: "",
     image: "",
   })
@@ -25,6 +28,7 @@ export default function NewPost() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log(postData)
+		// createPost(postData)
 	}
 
   return (
@@ -50,12 +54,13 @@ export default function NewPost() {
                 <div className="option">
                   <AddAPhoto />
                   <span className="newPostsText">Photo</span>
-                  <FileBase64
+                  {/* <FileBase64
                     type="file"
                     multiple={false}
 					name='image'
                     onDone={({ base64 }) => setPostData({...postData, image: base64})}
-                  />
+                  /> */}
+				  <input type='file' />
                 </div>
               </div>
               <button type="submit">Add post</button>
