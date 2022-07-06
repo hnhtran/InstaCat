@@ -41,8 +41,13 @@ async function update(req, res) {
     const postId = req.params.id
     try {
         const post = await Post.findById(postId)
-        res.json(post)
+        if (post.userId !== userId) {
+            res.status(401).json({ message: 'Unauthorized' })
+        } else {
+            const updatedPost = await Post.findByIdAndUpdate(postId, req.body, { new: true })
+            res.json(updatedPost)
+        }
     } catch (err) {
-        res.json({ message: err })
+        res.json(err)
     }
 }
