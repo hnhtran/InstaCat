@@ -4,7 +4,7 @@ const User = require('../../models/user')
 
 module.exports = {
     createPost,
-    index,
+    getPosts,
     getPost,
     updatePost,
     deletePost,
@@ -23,9 +23,10 @@ async function createPost(req, res) {
 }
 
 // show all posts
-async function index(req, res) {
+async function getPosts(req, res) {
     try {
         const posts = await Post.find()
+        // console.log(posts)
         res.json(posts)
     } catch (err) {
         res.json({ message: err })

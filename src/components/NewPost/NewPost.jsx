@@ -5,7 +5,7 @@ import { useState } from "react";
 import { createPost } from '../../utilities/posts-api'
 
 
-export default function NewPost({user}) {
+export default function NewPost({user, post, setPost}) {
 	console.log(user)
   const [postData, setPostData] = useState({
 	userId: user._id,
@@ -27,8 +27,20 @@ export default function NewPost({user}) {
 	// }
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(postData)
-		// createPost(postData)
+		// console.log(postData)
+		const newPost = await createPost(postData)
+		// console.log(post)
+		setPost(newPost)
+	}
+
+	const [image, setImage] = useState(null);
+	const [imageUrl, setImageUrl] = useState(null);
+	const onImageChange = (e) => {
+		setImage(e.target.files[0]);
+		setImageUrl(URL.createObjectURL(e.target.files[0]));
+		setPostData({...postData, image: imageUrl})
+		console.log(imageUrl)
+		console.log(image)
 	}
 
   return (
@@ -60,7 +72,7 @@ export default function NewPost({user}) {
 					name='image'
                     onDone={({ base64 }) => setPostData({...postData, image: base64})}
                   /> */}
-				  <input type='file' />
+				  <input type='file' onChange={onImageChange}/>
                 </div>
               </div>
               <button type="submit">Add post</button>

@@ -2,7 +2,8 @@ import "./Post.css"
 import { MoreVert } from "@mui/icons-material/"
 
 import { Favorite } from "@mui/icons-material/"
-export default function Post() {
+export default function Post({user, post, setPost}) {
+	console.log(post)
 	return (
 		<>
 			<div className='post'>
@@ -18,9 +19,9 @@ export default function Post() {
 					</div>
 
 					<div className='postCenter'>
-						<span className='postText'>Look at this cutie!</span>
+						<span className='postText'>{post.description}</span>
 						<br />
-						<img alt='rascal' src={require("./rascal-1.jpg")} />
+						<img alt='rascal' src={post.image} />
 					</div>
 					<div className='postBottom'>
 						<div className='postBottomLeft'>
