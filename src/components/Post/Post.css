@@ -8,6 +8,7 @@
 
 .postWrapper {
 	padding: 10px;
+	
 }
 
 .postTop {
@@ -36,17 +37,24 @@
 }
 
 .postImg {
-    margin-top: 20px;
-    width: 100%;
+	margin-top: 20px;
+	width: 100%;
 }
 
 .postBottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .postBottomLeft {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	width: 500px;
+	object-fit: cover;
 }
