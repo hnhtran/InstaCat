@@ -10,7 +10,7 @@ export default function NewPost() {
       <div className="newPosts">
         <div className="newPostsContainer">
           <div className="newPostsTop">
-            <img className="postsProfileimg" src="" alt="Add Photo" />
+            <img className="postsProfileimg" src={first} alt="Add Photo" />
             <input placeholder="Show us your cats!" className="newPostInput" />
           </div>
           <hr className="newPostHr" />
@@ -30,7 +30,7 @@ export default function NewPost() {
         </div>
       </div>
       <div>
-		{first}
+		{/* {first} */}
 		<img className="postsProfileimg" src={first} alt="Add Photo" height='50px'/>
 		</div>
     </>
