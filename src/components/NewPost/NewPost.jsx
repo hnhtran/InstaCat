@@ -36,11 +36,14 @@ export default function NewPost({user, post, setPost}) {
 	const [image, setImage] = useState(null);
 	const [imageUrl, setImageUrl] = useState(null);
 	const onImageChange = (e) => {
-		setImage(e.target.files[0]);
-		setImageUrl(URL.createObjectURL(e.target.files[0]));
-		setPostData({...postData, image: imageUrl})
-		console.log(imageUrl)
-		console.log(image)
+		if(e.target.files && e.target.files[0]){
+			setImage(e.target.files[0]);
+		}
+		// setImage(e.target.files[0]);
+		// setImageUrl(URL.createObjectURL(e.target.files[0]));
+		setPostData({...postData, image: image})
+		// console.log(imageUrl)
+		// console.log(image)
 	}
 
   return (
