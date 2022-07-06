@@ -4,7 +4,7 @@ import * as postsAPI from '../../utilities/posts-api'
 import { useState, useEffect } from 'react'
 
 const Posts = ({user, post, setPost}) => {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState('')
 
   // load posts from database
   useEffect(() => {
@@ -22,10 +22,9 @@ const Posts = ({user, post, setPost}) => {
   return (
     <div>
         <h1>Posts</h1>
-        {posts.map((post) => {
-          <Post user={user} post={post} setPost={setPost}/>
-        })}
-        {/* <Post user={user} post={post} setPost={setPost}/> */}
+        {console.log(posts[3])}
+        {/* {posts.map(item => <Post user={user} post={item} />)} */}
+        <Post user={user} post={post} setPost={setPost}/>
     </div>
   )
 }

@@ -2,11 +2,11 @@ import "./Post.css"
 import { MoreVert } from "@mui/icons-material/"
 
 import { Favorite } from "@mui/icons-material/"
-export default function Post({user, post, setPost}) {
+export default function Post({user, post}) {
 	console.log(post)
 	return (
 		<>
-			<div className='post'>
+			{/* <div className='post'>
 				<div className='postWrapper'>
 					<div className='postTop'>
 						<div className='postTopLeft'>
@@ -33,7 +33,7 @@ export default function Post({user, post, setPost}) {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
 			<div className='post'>
 				<div className='postWrapper'>
 					<div className='postTop'>
