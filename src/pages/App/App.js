@@ -19,7 +19,7 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <div className="home-page">
             <HomePage />
-            <SideBar />
+            {/* <SideBar /> */}
             </div>
             <Footer />
           </>
