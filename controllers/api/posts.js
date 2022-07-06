@@ -5,7 +5,7 @@ const User = require('../../models/user')
 module.exports = {
     createPost,
     index,
-    showPost,
+    getPost,
     updatePost,
     deletePost,
     likePost
@@ -30,7 +30,7 @@ async function index(req, res) {
     }
 }
 // get/show a post by id
-async function showPost(req, res) {
+async function getPost(req, res) {
     try {
         const post = await Post.findById(req.params.id)
         res.json(post)

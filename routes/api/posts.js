@@ -5,6 +5,6 @@ const postsCtrl = require('../../controllers/api/posts')
 // GET /api/posts
 router.get('/', postsCtrl.index) // !need to define this
 // GET /api/posts/:id
-router.get('/:id', postsCtrl.show) // !need to define this
+router.get('/:id', postsCtrl.getPost)
 
 module.exports = router
