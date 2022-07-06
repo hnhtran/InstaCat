@@ -6,7 +6,7 @@ import './HomePage.css'
 import { useState } from "react";
 
 export default function Home({user}) {
-  const [post, setPost] = useState('')
+	const [post, setPost] = useState('')
   return (
     <>
       {/* <NavBar /> */}

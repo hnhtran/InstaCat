@@ -2,22 +2,26 @@
   width: 2.5em;
   height: 2.5em;
   margin: .25em;
+  text-decoration: none;
 }
 
 .icon:hover{
-  width: 3em;
-  height: 3em;
+  width: 2.75em;
+  height: 2.75em;
 }
 
 .navbar-container{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   background-color: #c49474;
-  position: fixed;
-  /* left: 0;
-  top: 0; */
-  width: 100%;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsuRAmfBBIvmC-awEhPo_CviUb7QuM4tMMGw&usqp=CAU');
+  background-repeat: repeat;
+  -webkit-background-clip:content-box;
+  background-clip: content-box;
+  animation: animate 120s ease-in-out infinite;
+  /* padding-left: 2.5em; */
+  /* width: 100%; */
 }
 
 .icons{
@@ -28,7 +32,45 @@
 
 * {
   font-family: 'Itim', cursive;
+  box-sizing: border-box;
 }
+
+/* .instacat{
+  display: flex;
+  justify-content: center;
+  align-items: center
+} */
+
+/* .instacat h1{
+  margin: 0;
+  font-size: 50px;
+  color: rgba(225, 225, 225, 0.01);
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgjYWVdmf0m4cQry9QELppdBMdVIK3CljGew&usqp=CAU');
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: animate 40s ease-in-out infinite;
+  text-align: center;
+  /* text-transform: uppercase; */
+  /* font-weight: 900;
+}  */ 
+
+@keyframes animate {
+  0%,
+  100%{
+    background-position: left top;
+  }
+  25%{
+    background-position: right bottom;
+  }
+  50%{
+    background-position: left bottom;
+  }
+  75%{
+    background-position: right top;
+  }
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
   .navbar-container{
@@ -37,6 +79,6 @@
     justify-content: space-between;
     align-items: center;
     background-color: #c49474;
-    padding: 1em;
+    width: 100%;
   }
 } 
