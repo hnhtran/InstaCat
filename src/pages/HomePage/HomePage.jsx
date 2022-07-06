@@ -10,7 +10,7 @@ export default function Home() {
       {/* <NavBar /> */}
       <div className="home">
         <Feed />
-        <Sidebar />
+        <Sidebar user={user}/>
       </div>
       {/* <Footer /> */}
     </>
