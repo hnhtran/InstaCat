@@ -44,13 +44,13 @@ export default class SignUpForm extends Component {
         <div className="form-container">
             <h1>Instacats</h1>
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label></label>
+            
             <input type="text"placeholder="Username" name="name" value={this.state.name} onChange={this.handleChange} required />
-            <label></label>
+        
             <input type="email"placeholder='Email' name="email" value={this.state.email} onChange={this.handleChange} required />
-            <label></label>
+            
             <input type="password" placeholder='Password' name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label></label>
+            
             <input type="password" placeholder='Confirm' name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
             <button type="submit" disabled={disable}>SIGN UP</button>
           </form>

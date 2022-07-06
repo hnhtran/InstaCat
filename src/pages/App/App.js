@@ -15,10 +15,10 @@ export default function App() {
       {
         user ? (
           <>
-            {/* <NavBar user={user} setUser={setUser} /> */}
-            <NavBar />
-            {/* <HomePage /> */}
-            {/* <Footer /> */}
+            <NavBar user={user} setUser={setUser} />
+            {/* <NavBar /> */}
+            <HomePage />
+            <Footer />
           </>
         ) : (
           <AuthPage setUser={setUser} />

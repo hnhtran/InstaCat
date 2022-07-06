@@ -1,59 +1,39 @@
-<<<<<<< HEAD
 import "./NavBar.css"
+import React from "react"
 import { Link } from "react-router-dom"
 import * as userService from "../../utilities/users-service"
-;<style>
-	@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-</style>
-// Using the import below, we can call any exported function using: userService.someMethod()
-export default function NavBar({ user, setUser }) {
+import { PropaneSharp } from "@mui/icons-material"
+
+const NavBar = ({ user, setUser }) => {
 	function handleLogOut() {
 		// Delegate to the users-service
 		userService.logOut()
 		// Update state will also cause a re-render
 		setUser(null)
 	}
+
 	return (
-		<div class='header'>
-			<Link to='' className='logo'>
-				InstaCat
-			</Link>
-			<div className='header-right'>
-				<a class='active' href='#home'>
+		<div className='navbar-container'>
+			<div className='instacat'>
+				<h1>InstaCat</h1>
+			</div>
+			<div className='icons'>
+				<Link to='/'>
 					<img src='images/homeicon.png' className='icon' alt='' />
-				</a>
-				<a href='#contact'>
+				</Link>
+				<Link to=''>
 					<img src='images/newposticon.png' className='icon' alt='' />
-				</a>
-				<a href='#about'>
-					<img src='../../images/usericon.png' className='icon' alt='' />
-				</a>
+				</Link>
+				<Link to=''>
+					<img src='images/usericon.png' className='icon' alt='' />
+					{user.name}
+				</Link>
+				<Link to='' onClick={handleLogOut}>
+					Log Out
+				</Link>
 			</div>
 		</div>
 	)
-=======
-import './NavBar.css'
-import React from 'react'
-import { Link } from 'react-router-dom';
-import * as userService from '../../utilities/users-service';
-
-const NavBar = ({user, setUser}) => {
-  function handleLogOut() {
-    // Delegate to the users-service
-    userService.logOut();
-    // Update state will also cause a re-render
-    setUser(null);
-  }
-
-  return (
-    <div className='navbar-container'>
-      <Link to="/"><img src="images/homeicon.png" className='icon' alt="" /></Link>
-      <Link to=""><img src="images/newposticon.png" className="icon" alt=""/></Link>
-      <Link to=""><img src="images/usericon.png" className="icon" alt=""/></Link>
-      <Link to="" onClick={handleLogOut}>Log Out</Link>
-    </div>
-  );
->>>>>>> main
 }
 
 export default NavBar
