@@ -19,7 +19,7 @@ const NavBar = ({user, setUser}) => {
       </div>
       <div className='icons'>
       <Link to="/"><img src="images/homeicon.png" className='icon' alt="" /></Link>
-      <Link to=""><img src="images/newposticon.png" className="icon" alt=""/></Link>
+      <Link to="/post"><img src="images/newposticon.png" className="icon" alt=""/></Link>
       <Link to=""><img src="images/usericon.png" className="icon" alt=""/>{user.name}</Link>
       <Link to="" onClick={handleLogOut}>Log Out</Link>
       </div>
