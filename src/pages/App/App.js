@@ -7,6 +7,7 @@ import { getUser } from "../../utilities/users-service";
 import HomePage from "../HomePage/HomePage";
 import Footer from "../../components/Footer/Footer"
 import UserSettingPage from "../UserSettingPage/UserSettingPage";
+import SideBar from "../../components/SideBar/SideBar"
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -18,7 +19,10 @@ export default function App() {
           <>
             <NavBar user={user} setUser={setUser} />
             <Routes>
-            <Route exact path='/' element={< HomePage />}></Route>
+            <Route exact path='/' element={<div className="home-page">
+            <HomePage user={user} />
+            <SideBar />
+            </div>}></Route>
               <Route exact path='/settings' element={< UserSettingPage />}></Route>
              </Routes>
             {/* <NavBar /> */}
@@ -28,7 +32,6 @@ export default function App() {
         ) : (
           <AuthPage setUser={setUser} />
         )
-        // <AuthPage/>
       }
 
     </div>
