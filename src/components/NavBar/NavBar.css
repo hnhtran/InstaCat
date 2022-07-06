@@ -2,6 +2,12 @@
   width: 2.5em;
   height: 2.5em;
 }
+
+.icon:hover{
+  width: 3em;
+  height: 3em;
+}
+
 .navbar-container{
   display: flex;
   justify-content: space-between;
