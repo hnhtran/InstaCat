@@ -17,5 +17,18 @@
     width: 25%;
     margin: auto;
     font-weight: bold;
+    grid-template-columns: 4fr;
+    padding: 3vmin;
+    background-color: white;
+    border: .1vmin solid #373619;
+    border-radius: 1vmin;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #c49474;
+
   }
   
