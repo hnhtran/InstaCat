@@ -27,8 +27,9 @@ export default function NewPost({user}) {
 	// }
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(postData)
-		// createPost(postData)
+		// console.log(postData)
+		const post = await createPost(postData)
+		console.log(post)
 	}
 
 	const [image, setImage] = useState(null);
@@ -36,6 +37,7 @@ export default function NewPost({user}) {
 	const onImageChange = (e) => {
 		setImage(e.target.files[0]);
 		setImageUrl(URL.createObjectURL(e.target.files[0]));
+		setPostData({...postData, image: imageUrl})
 		console.log(imageUrl)
 		console.log(image)
 	}
@@ -81,6 +83,7 @@ export default function NewPost({user}) {
       </div>
 	  <div>
 		<img src={imageUrl} alt=''/>
+		
 	  </div>
     </>
   );
