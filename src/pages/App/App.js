@@ -17,10 +17,8 @@ export default function App() {
         user ? (
           <>
             <NavBar user={user} setUser={setUser} />
-            <div className="home-page">
             <HomePage user={user} />
-            <SideBar />
-            </div>
+            {/* <SideBar /> */}
             <Footer />
           </>
         ) : (

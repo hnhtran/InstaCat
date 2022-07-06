@@ -4,13 +4,13 @@ import Feed from "../../components/Feed/Feed";
 // import Footer from "../../components/Footer/Footer";
 import './HomePage.css'
 
-export default function Home() {
+export default function Home({user}) {
   return (
     <>
       {/* <NavBar /> */}
       <div className="home">
-        <Feed />
-        <Sidebar user={user}/>
+        <Feed user={user}/>
+        <Sidebar />
       </div>
       {/* <Footer /> */}
     </>
