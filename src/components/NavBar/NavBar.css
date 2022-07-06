@@ -2,6 +2,7 @@
   width: 2.5em;
   height: 2.5em;
   margin: .25em;
+  text-decoration: none;
 }
 
 .icon:hover{
@@ -14,7 +15,12 @@
   justify-content: space-between;
   align-items: center;
   background-color: #c49474;
-  padding-left: 2.5em;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsuRAmfBBIvmC-awEhPo_CviUb7QuM4tMMGw&usqp=CAU');
+  background-repeat: repeat;
+  -webkit-background-clip:content-box;
+  background-clip: content-box;
+  animation: animate 120s ease-in-out infinite;
+  /* padding-left: 2.5em; */
   /* width: 100%; */
 }
 
@@ -29,14 +35,13 @@
   box-sizing: border-box;
 }
 
-.instacat{
-  /* height: 100vh; */
+/* .instacat{
   display: flex;
   justify-content: center;
   align-items: center
-}
+} */
 
-.instacat h1{
+/* .instacat h1{
   margin: 0;
   font-size: 50px;
   color: rgba(225, 225, 225, 0.01);
@@ -47,8 +52,8 @@
   animation: animate 40s ease-in-out infinite;
   text-align: center;
   /* text-transform: uppercase; */
-  font-weight: 900;
-}
+  /* font-weight: 900;
+}  */ 
 
 @keyframes animate {
   0%,
@@ -74,7 +79,6 @@
     justify-content: space-between;
     align-items: center;
     background-color: #c49474;
-    padding: 1em;
     width: 100%;
   }
 } 
