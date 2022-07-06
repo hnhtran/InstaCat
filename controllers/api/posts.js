@@ -14,6 +14,7 @@ module.exports = {
 async function createPost(req, res) {
     try {
         const post = await Post.create(req.body)
+        console.log(post)
         res.json(post)
     } catch (err) {
         res.json({ message: err })

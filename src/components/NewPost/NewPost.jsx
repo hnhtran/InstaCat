@@ -3,6 +3,7 @@ import "./NewPost.css";
 import FileBase64 from "react-file-base64";
 import { useState } from "react";
 
+
 export default function NewPost() {
   const [postData, setPostData] = useState({
     description: "",
@@ -23,8 +24,7 @@ export default function NewPost() {
 	// }
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// console.log(postData);
-		console.log('Post created!');
+		console.log(postData)
 	}
 
   return (
