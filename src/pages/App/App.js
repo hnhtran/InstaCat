@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import HomePage from "../HomePage/HomePage";
 import Footer from "../../components/Footer/Footer"
+import UserSettingPage from "../UserSettingPage/UserSettingPage";
 import SideBar from "../../components/SideBar/SideBar"
 
 export default function App() {
@@ -17,16 +18,22 @@ export default function App() {
         user ? (
           <>
             <NavBar user={user} setUser={setUser} />
-            <div className="home-page">
+            <Routes>
+            <Route exact path='/' element={<div className="home-page">
             <HomePage user={user} />
             <SideBar />
-            </div>
+            </div>}></Route>
+              <Route exact path='/settings' element={< UserSettingPage />}></Route>
+             </Routes>
+            {/* <NavBar /> */}
+            {/* <HomePage /> */}
             <Footer />
           </>
         ) : (
           <AuthPage setUser={setUser} />
         )
       }
+
     </div>
   );
 }
