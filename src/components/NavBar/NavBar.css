@@ -1,9 +1,21 @@
 .icon{
-  width: 2em;
-  height: 2em;
+  width: 2.5em;
+  height: 2.5em;
 }
 .navbar-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  background-color: #c49474;
+  padding: 1.5em;
+}
+
+.icons{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2em;
+}
+
+* {
+  font-family: 'Itim', cursive;
 }
