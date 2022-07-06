@@ -3,7 +3,7 @@ import './Footer.css'
 export default function Footer(){
     return(
         <footer>
-            <h2>Created by:</h2>
+            <h4>Created by:</h4>
             <div className='creators'>
             <a href="https://github.com/hnhtran"><img src="images/tranGH.jpeg" className='creator' alt="githublogo" /></a>
             <a href="https://github.com/annakoanna"><img src="images/AnnaGH.jpeg" className='creator' alt="githublogo" /></a>
