@@ -1,15 +1,15 @@
 .form-container {
+    background-color: aqua;
+    display: grid;
     grid-template-columns: 4fr;
     padding: 3vmin;
     background-color: white;
     border: .1vmin solid #373619;
     border-radius: 1vmin;
     align-items: center;
+    display: grid;
     justify-content: center;
-    width: 25%;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100%;
 }
 
 p.error-message {
