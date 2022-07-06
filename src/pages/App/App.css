@@ -20,4 +20,12 @@
   color: white;
 }
 
+.home-page{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 2em;
+  gap: 5em;
+}
+
 
