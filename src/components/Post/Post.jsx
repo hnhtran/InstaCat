@@ -18,8 +18,9 @@ export default function Post() {
 					</div>
 
 					<div className='postCenter'>
-						<span className='postText'>Look at this cutie!</span>
-						<br />
+						<span className='postText'>Look at this cutie! <hr /><br /></span>
+						
+						
 						<img alt='rascal' src={require("./rascal-1.jpg")} />
 					</div>
 					<div className='postBottom'>
