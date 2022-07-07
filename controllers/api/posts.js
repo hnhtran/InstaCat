@@ -12,6 +12,7 @@ module.exports = {
 }
 // createPost
 async function createPost(req, res) {
+    console.log(req.body)
     try {
         const newPost = await Post.create(req.body)
         console.log(newPost)

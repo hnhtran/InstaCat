@@ -7,11 +7,8 @@ import { useParams } from "react-router-dom"
 
 const Posts = ({user, post, setPost}) => {
   const [posts, setPosts] = useState('')
-  let userID
   // { userId } is default name ob object in react to retrieve useParams
   let { userId } = useParams()
-  userId ? userID = userId : userID = 0
-  console.log(user._id)
 
 
   // load posts from database

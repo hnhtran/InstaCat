@@ -5,7 +5,7 @@ const postsCtrl = require('../../controllers/api/posts')
 
 // POST /api/users/profiles
 
-router.get('/:id', postsCtrl.getPosts) // show all posts
 router.post('/', postsCtrl.createPost)
+router.get('/:id', postsCtrl.getPosts) // show all posts
 
 module.exports = router
