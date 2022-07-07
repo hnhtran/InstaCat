@@ -5,14 +5,16 @@ import Feed from "../../components/Feed/Feed";
 import './HomePage.css'
 import { useState } from "react";
 
-export default function Home({user}) {
-	const [post, setPost] = useState('')
+export default function Home({user, post, setPost}) {
+	
   return (
     <>
       {/* <NavBar /> */}
+      <div className="home-page">
       <div className="home">
         <Feed user={user} post={post} setPost={setPost}/>
         <Sidebar />
+      </div>
       </div>
       {/* <Footer /> */}
     </>

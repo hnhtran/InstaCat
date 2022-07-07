@@ -12,6 +12,7 @@ module.exports = {
 }
 // createPost
 async function createPost(req, res) {
+    console.log(req.body)
     try {
         const newPost = await Post.create(req.body)
         console.log(newPost)
@@ -23,15 +24,26 @@ async function createPost(req, res) {
 
 // show all posts
 async function getPosts(req, res) {
-    console.log(req.params._id)
+    // console.log(req.params.id)
+    if (req.params.id) {
     try {
-        const posts = await Post.find({})
+        const posts = await Post.find({ userId: req.params.id })
         .sort({ updatedAt: -1 }) // sort current one first
-        // console.log(posts)
+        // console.log(posts[0].userId)
         res.json(posts)
     } catch (err) {
         res.json({ message: err })
     }
+} else {
+    try {
+        const posts = await Post.find({})
+        .sort({ updatedAt: -1 }) // sort current one first
+        console.log(posts[0].userId)
+        res.json(posts)
+    } catch (err) {
+        res.json({ message: err })
+    }
+}
 }
 // get/show a post by id
 async function getPost(req, res) {
@@ -60,19 +72,20 @@ async function updatePost(req, res) {
 }
 // delete a post
 async function deletePost(req, res) {
-    const userId = req.user._id
-    const postId = req.params.id
-    try {
-        const post = await Post.findById(postId)
-        if (post.userId !== userId) {
-            res.status(401).json({ message: 'Unauthorized delete' })
-        } else {
-            await Post.findByIdAndDelete(postId)
-            res.json({ message: 'Post deleted' })
-        }
-    } catch (err) {
-        res.json(err)
-    }
+    console.log(req.body)
+    // const userId = req.user._id
+    // const postId = req.params.id
+    // try {
+    //     const post = await Post.findById(postId)
+    //     if (post.userId !== userId) {
+    //         res.status(401).json({ message: 'Unauthorized delete' })
+    //     } else {
+    //         await Post.findByIdAndDelete(postId)
+    //         res.json({ message: 'Post deleted' })
+    //     }
+    // } catch (err) {
+    //     res.json(err)
+    // }
 }
 // like or unlike a post
 async function likePost(req, res) {
