@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom"
 export default function Post({ user, post }) {
 	let { userId } = useParams()
 	const handleDelete = () => {
-		// alert(post._id)
+		console.log(`${userId}, ${post._id}`)
 		userProfileAPI.deletePost(userId, post._id)
 	}
 	const [like, setLike] = useState(0)

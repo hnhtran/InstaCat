@@ -5,6 +5,7 @@ import Posts from "../Posts/Posts"
 import SeededData from "../../SeededData"
 export default function Feed({user, post, setPost}) {
 	let { userId } = useParams();
+	// console.log(userId)
 	
 	return (
 		<>
