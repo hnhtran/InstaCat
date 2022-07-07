@@ -15,6 +15,12 @@ export async function login(credentials) {
     return getUser()
 }
 
+export async function changeUsername(userData) {
+    const token = await usersAPI.changeUsername(userData)
+    localStorage.setItem('token', token)
+    return getUser()
+}
+
 export function logOut() {
     localStorage.removeItem('token')
 }

@@ -5,7 +5,8 @@ const User = require('../../models/user')
 
 module.exports = {
     create,
-    login
+    login,
+    changeUsername
 }
 
 
@@ -30,6 +31,20 @@ async function create(req, res) {
         const token = createJWT(user)
 
         res.json(token)
+    } catch(error) {
+        res.status(400).json(error)
+    }
+}
+
+// change username
+async function changeUsername(req, res) {
+    try {
+        const newUsername = req.body.name;
+        const newUser = await User.findOneAndUpdate(
+            { email: req.body.email }, 
+            { name: newUsername }, 
+            { new: true })
+        res.json( createJWT(newUser) )
     } catch(error) {
         res.status(400).json(error)
     }
