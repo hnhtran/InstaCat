@@ -2,7 +2,7 @@ import { AddAPhoto } from "@mui/icons-material/";
 import "./NewPost.css";
 import FileBase64 from "react-file-base64";
 import { useState } from "react";
-import { createPost } from '../../utilities/posts-api'
+import { createPost } from '../../utilities/userProfile-api'
 
 
 export default function NewPost({user, post, setPost}) {

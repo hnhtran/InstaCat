@@ -10,6 +10,7 @@ router.post('/login', usersCtrl.login)
 // POST /api/users/changeUsername
 router.post('/changeUsername', usersCtrl.changeUsername)
 
-router.get('/profiles/:id', postsCtrl.getPosts) // show all posts
+// router.get('/profiles/:id', postsCtrl.getPosts) // show all posts
+// router.post('/profiles', postsCtrl.createPost)
 
 module.exports = router
