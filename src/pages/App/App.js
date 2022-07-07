@@ -9,7 +9,8 @@ import Footer from "../../components/Footer/Footer";
 import UserSettingPage from "../UserSettingPage/UserSettingPage";
 import UserProfilePage from "../UserProfilePage/UserProfilePage";
 import SideBar from "../../components/SideBar/SideBar";
-import Post  from "../../components/Post/Post";
+import CreatePost  from "../../pages/CreatePost/CreatePost"
+
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -21,6 +22,7 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
+          <Route path='/api/users/:userId/post' element={<CreatePost user={user} post={post} setPost={setPost}/>}></Route>
             <Route
               path="/"
               element={
