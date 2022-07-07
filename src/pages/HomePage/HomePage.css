@@ -4,7 +4,7 @@
     flex-direction: row;
     margin: 0 auto;
     padding: 2em;
-    gap: 5em;
+    /* gap: 5em; */
   }
   
   /* Small devices (portrait tablets and large phones, 600px and up) */
