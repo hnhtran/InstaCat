@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path')
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const bodyParser = require('body-parser');
 
 // Always require and configure near the top
 require('dotenv').config()
@@ -11,6 +12,8 @@ require('./config/database')
 
 const app = express()
 
+app.use(bodyParser.json({ limit: '30mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(logger('dev'))
 // body parser middleware - adds properties to req.body
 app.use(express.json())

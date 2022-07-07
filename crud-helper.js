@@ -6,8 +6,8 @@ require('dotenv').config()
 require('./config/database')
 
 // require mongoose models
-// const User = require('./models/user')
-// const Post = require('./models/post')
+const User = require('./models/user')
+const Post = require('./models/post')
 // const Comment = require('./models/comment')
 
 // Local variables will come in handy for holding retrieved documents

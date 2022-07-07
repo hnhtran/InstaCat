@@ -13,18 +13,20 @@ const Posts = ({user, post, setPost}) => {
       // const data = await response.json()
       console.log(updatedPosts)
       setPosts(updatedPosts)
-      return posts
     }
     getPosts()
-  }, [])
+  }, [post])
   
   
   return (
     <div>
         <h1>Posts</h1>
-        {console.log(posts[3])}
-        {/* {posts.map(item => <Post user={user} post={item} />)} */}
-        <Post user={user} post={post} setPost={setPost}/>
+        {/* {console.log(posts[3])} */}
+
+        {posts ? 
+        posts.map(item => <Post user={user} post={item} />)
+        : <p>Loading...</p>}
+        {/* <Post user={user} post={post} setPost={setPost}/> */}
     </div>
   )
 }

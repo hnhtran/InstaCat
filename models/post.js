@@ -12,7 +12,7 @@ const postSchema = mongoose.Schema({
         required: true
     },
     image: String,
-    createdAt: {
+    updatedAt: {
         type: Date,
         default: new Date()
     }

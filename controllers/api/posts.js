@@ -12,11 +12,10 @@ module.exports = {
 }
 // createPost
 async function createPost(req, res) {
-    console.log('test')
     try {
-        const post = await Post.create(req.body)
-        console.log(post)
-        res.json(post)
+        const newPost = await Post.create(req.body)
+        console.log(newPost)
+        res.json(newPost)
     } catch (err) {
         res.json({ message: err })
     }
@@ -25,7 +24,7 @@ async function createPost(req, res) {
 // show all posts
 async function getPosts(req, res) {
     try {
-        const posts = await Post.find()
+        const posts = await Post.find({}).sort({ updatedAt: -1 }) // sort current one first
         // console.log(posts)
         res.json(posts)
     } catch (err) {

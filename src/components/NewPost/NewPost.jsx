@@ -33,18 +33,18 @@ export default function NewPost({user, post, setPost}) {
 		setPost(newPost)
 	}
 
-	const [image, setImage] = useState(null);
-	const [imageUrl, setImageUrl] = useState(null);
-	const onImageChange = (e) => {
-		if(e.target.files && e.target.files[0]){
-			setImage(e.target.files[0]);
-		}
-		// setImage(e.target.files[0]);
-		// setImageUrl(URL.createObjectURL(e.target.files[0]));
-		setPostData({...postData, image: image})
-		// console.log(imageUrl)
-		// console.log(image)
-	}
+	// const [image, setImage] = useState(null);
+	// const [imageUrl, setImageUrl] = useState(null);
+	// const onImageChange = (e) => {
+	// 	if(e.target.files && e.target.files[0]){
+	// 		setImage(e.target.files[0]);
+	// 	}
+	// 	// setImage(e.target.files[0]);
+	// 	// setImageUrl(URL.createObjectURL(e.target.files[0]));
+	// 	setPostData({...postData, image: image})
+	// 	// console.log(imageUrl)
+	// 	// console.log(image)
+	// }
 
   return (
     <>
@@ -69,13 +69,13 @@ export default function NewPost({user, post, setPost}) {
                 <div className="option">
                   <AddAPhoto />
                   <span className="newPostsText">Photo</span>
-                  {/* <FileBase64
+                  <FileBase64
                     type="file"
                     multiple={false}
 					name='image'
                     onDone={({ base64 }) => setPostData({...postData, image: base64})}
-                  /> */}
-				  <input type='file' onChange={onImageChange}/>
+                  />
+				  {/* <input type='file' onChange={onImageChange}/> */}
                 </div>
               </div>
               <button type="submit">Add post</button>
