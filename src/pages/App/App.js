@@ -7,11 +7,13 @@ import { getUser } from "../../utilities/users-service";
 import HomePage from "../HomePage/HomePage";
 import Footer from "../../components/Footer/Footer";
 import UserSettingPage from "../UserSettingPage/UserSettingPage";
+import UserProfilePage from "../UserProfilePage/UserProfilePage";
 import SideBar from "../../components/SideBar/SideBar";
 import Post  from "../../components/Post/Post";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [post, setPost] = useState('')
 
   return (
     <div className="App">
@@ -20,16 +22,13 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route
-              exact
               path="/"
               element={
-                <div className="home-page">
-                  <HomePage user={user} />
-                </div>
+                  <HomePage user={user} post={post} setPost={setPost}/>
               }
             ></Route>
-            {/* <Route exact path="/post" element={<Post />}></Route> */}
-            <Route exact path="/settings" element={<UserSettingPage user={user} setUser={setUser} />}></Route>
+            < Route path='/api/users/:userId' element={<UserProfilePage user={user} post={post} setPost={setPost}/>}></Route>
+            <Route path="/api/users/:userId/setting" element={<UserSettingPage user={user} post={post} setPost={setPost}/>}></Route>
              {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
           <Route path="/*" element={<Navigate to="/" />} />
           </Routes>

@@ -11,7 +11,7 @@ const Posts = ({user, post, setPost}) => {
     const getPosts = async () => {
       const updatedPosts = await postsAPI.getPosts()
       // const data = await response.json()
-      console.log(updatedPosts)
+      // console.log(updatedPosts)
       setPosts(updatedPosts)
     }
     getPosts()

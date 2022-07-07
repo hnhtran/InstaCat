@@ -1,10 +1,13 @@
 import "./Post.css"
+import * as postsAPI from "../../utilities/posts-api"
 import { MoreVert } from "@mui/icons-material/"
-
 import { Favorite } from "@mui/icons-material/"
+import moment from 'moment'
+
 export default function Post({user, post}) {
 	const handleDelete = () => {
-		alert('delete?')
+		console.log(post._id)
+		postsAPI.deletePost(post._id)
 	}
 	// console.log(post)
 	return (
@@ -14,7 +17,8 @@ export default function Post({user, post}) {
 					<div className='postTop'>
 						<div className='postTopLeft'>
 							<span className='postUsername'>{post.userName}</span>
-							<span className='postDate'>{post.updatedAt}</span>
+							<span className='postDate'>Created: {new Date(post.createdAt).toLocaleDateString()} </span>
+							<span className='postDate'>Updated: {moment(post.updatedAt).fromNow()}</span>
 							<button onClick={handleDelete}>delete</button>
 						</div>
 						<div className='postTopRight'>

@@ -7,7 +7,7 @@ export default function Feed({user, post, setPost}) {
 		<>
 			<div className='feed'>
 				<div className='feedcontainer'>
-					<NewPost user={user} post={post} setPost={setPost}/>
+					{/* <NewPost user={user} post={post} setPost={setPost}/> */}
 					<Posts post={post} setPost={setPost}/>
 				</div>
 			</div>
