@@ -1,4 +1,4 @@
-.sidebar {
+/* .sidebar {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -8,7 +8,20 @@
   right: 0;
   top: 20;
   margin: 2em;
+} */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
+  position: fixed;
+  right: 0;
+  top: 20;
+  margin: 2em;
 }
+
 
 .cat-fact-button {
   /* margin: 1em; */
@@ -30,7 +43,7 @@
 }
 
 .cat {
-  animation: float 4s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
   width: 200px;
 }
 
@@ -48,3 +61,17 @@
     transform: translateY(0px);
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .sidebar{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  align-items: center;
+  max-width: 300px;
+  /* position: fixed; */
+  /* right: 0; */
+  /* top: 20; */
+  margin: 2em;
+  }
+} 
