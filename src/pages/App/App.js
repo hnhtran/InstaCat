@@ -29,7 +29,7 @@ export default function App() {
               }
             ></Route>
             {/* <Route exact path="/post" element={<Post />}></Route> */}
-            <Route exact path="/settings" element={<UserSettingPage />}></Route>
+            <Route exact path="/settings" element={<UserSettingPage user={user} setUser={setUser} />}></Route>
              {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
           <Route path="/*" element={<Navigate to="/" />} />
           </Routes>
