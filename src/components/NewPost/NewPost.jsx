@@ -1,15 +1,18 @@
 import { AddAPhoto } from "@mui/icons-material/";
 import "./NewPost.css";
 import FileBase64 from "react-file-base64";
+import { useParams } from "react-router-dom"
 import { useState } from "react";
-import { createPost } from '../../utilities/posts-api'
+import { createPost } from '../../utilities/userProfile-api'
 
 
 export default function NewPost({user, post, setPost}) {
+  let { userId } = useParams()
 	console.log(user)
   const [postData, setPostData] = useState({
 	userId: user._id,
   userName: user.name,
+  likes: 0,
     description: "",
     image: "",
   })
@@ -29,7 +32,7 @@ export default function NewPost({user, post, setPost}) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		// console.log(postData)
-		const newPost = await createPost(postData)
+		const newPost = await createPost(postData, userId)
 		// console.log(post)
 		setPost(newPost)
 	}

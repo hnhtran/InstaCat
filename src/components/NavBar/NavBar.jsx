@@ -18,7 +18,7 @@ const NavBar = ({ user, setUser }) => {
         <h1>InstaCat</h1>
       </div>
       <div className='icons'>
-      <Link to='/'><img src="images/homeicon.png" className='icon' alt=""/></Link>
+      <Link to='/api/posts'><img src="images/homeicon.png" className='icon' alt=""/></Link>
       <Link to={`/api/users/profiles/${user._id}/post`}><img src="images/newposticon.png" className="icon" alt=""/></Link>
       <Link to={`/api/users/profiles/${user._id}/setting`}><img src="images/settings.png" className="icon" alt=""/></Link>
       <Link to={`/api/users/profiles/${user._id}`}><img src="images/usericon.png" className="icon db" alt=""/>{user.name}</Link>
