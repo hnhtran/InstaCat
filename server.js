@@ -28,7 +28,7 @@ app.use('/api/users', require('./routes/api/users'))
 
 // Protect the api routes below from anonymous users
 const ensureLoggedIn = require('./config/ensureLoggedIn')
-// app.use('api/users/profile', ensureLoggedIn, require('./routes/api/users'))
+app.use('api/users/profile', ensureLoggedIn, require('./routes/api/users'))
 app.use('/api/posts', require('./routes/api/posts'))
 
 // The following "catch all" route (note the *) is necessary

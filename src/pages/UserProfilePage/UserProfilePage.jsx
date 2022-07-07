@@ -1,11 +1,13 @@
 import React from "react";
 import NewPost from "../../components/NewPost/NewPost";
+import Feed from '../../components/Feed/Feed';
 
 const UserProfilePage = ({user, post, setPost}) => {
   return (
     <div>
       <h1>UserProfilePage</h1>
-      <NewPost user={user} post={post} setPost={setPost}/>
+      <Feed user={user} post={post} setPost={setPost} />
+      {/* <NewPost user={user} post={post} setPost={setPost}/> */}
     </div>
   );
 };
