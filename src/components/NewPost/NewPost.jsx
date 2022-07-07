@@ -8,7 +8,7 @@ import { createPost } from '../../utilities/userProfile-api'
 
 export default function NewPost({user, post, setPost}) {
   let { userId } = useParams()
-	console.log(user)
+	// console.log(user)
   const [postData, setPostData] = useState({
 	userId: user._id,
   userName: user.name,
