@@ -19,11 +19,14 @@ const Posts = ({user, post, setPost}) => {
     const getPosts = async () => {
       if (!userId) {
         const updatedPosts = await postsAPI.getPosts()
+        // const data = await updatedPosts.json()
+      console.log(updatedPosts)
+        setPosts(updatedPosts)
       }
+      else {
       const updatedPosts = await usersProfilesAPI.getPosts(userId)
-      // const data = await response.json()
-      // console.log(updatedPosts)
       setPosts(updatedPosts)
+      }
     }
     getPosts()
   }, [post])

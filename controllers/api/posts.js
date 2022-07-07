@@ -23,7 +23,7 @@ async function createPost(req, res) {
 
 // show all posts
 async function getPosts(req, res) {
-    console.log(req.params)
+    // console.log(req.params.id)
     if (req.params.id) {
     try {
         const posts = await Post.find({ userId: req.params.id })
@@ -37,7 +37,7 @@ async function getPosts(req, res) {
     try {
         const posts = await Post.find({})
         .sort({ updatedAt: -1 }) // sort current one first
-        // console.log(posts[0].userId)
+        console.log(posts[0].userId)
         res.json(posts)
     } catch (err) {
         res.json({ message: err })

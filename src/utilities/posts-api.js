@@ -3,7 +3,7 @@ import sendRequest from './send-request';
 const BASE_URL = '/api/posts'
 
 export function getPosts() {
-    return sendRequest(`/`)
+    return sendRequest(BASE_URL)
 }
 
 export function getById(id) {
