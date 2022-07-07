@@ -2,9 +2,13 @@ import React from 'react'
 import Post from '../Post/Post'
 import * as postsAPI from '../../utilities/posts-api'
 import { useState, useEffect } from 'react'
+import { useParams } from "react-router-dom"
 
 const Posts = ({user, post, setPost}) => {
   const [posts, setPosts] = useState('')
+  let {userId} = useParams() 
+  console.log(userId)
+
 
   // load posts from database
   useEffect(() => {
@@ -22,7 +26,6 @@ const Posts = ({user, post, setPost}) => {
     <div>
         <h1>Posts</h1>
         {/* {console.log(posts[3])} */}
-
         {posts ? 
         posts.map(item => <Post user={user} post={item} />)
         : <p>Loading...</p>}
