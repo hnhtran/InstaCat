@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+// import NewPost from "../../components/NewPost/NewPost";
 
-const UserProfilePage = () => {
+const UserProfilePage = ({user, post, setPost}) => {
   return (
-    <div>UserProfilePage</div>
-  )
-}
+    <div>
+      <h1>UserProfilePage</h1>
+      {/* <NewPost /> */}
+    </div>
+  );
+};
 
-export default UserProfilePage
+export default UserProfilePage;

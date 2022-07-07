@@ -13,3 +13,7 @@ export function getById(id) {
 export function createPost(postData) {
     return sendRequest(`${BASE_URL}`, 'POST', postData)
 }
+
+export function deletePost(id) {
+    return sendRequest(`${BASE_URL}/${id}`, 'DELETE', id)
+}

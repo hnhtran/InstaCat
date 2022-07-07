@@ -9,6 +9,6 @@ router.put('/:id', postsCtrl.updatePost)
 router.delete('/:id', postsCtrl.deletePost)
 router.post('/:id/like', postsCtrl.likePost)
 
-router.get('/', postsCtrl.getPosts) // !need to define this
+router.get('/', postsCtrl.getPosts) // show all posts
 
 module.exports = router
