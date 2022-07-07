@@ -31,7 +31,7 @@
 
 .cat {
   animation: float 4s ease-in-out infinite;
-  width: 250px;
+  width: 200px;
 }
 
 @keyframes float {
