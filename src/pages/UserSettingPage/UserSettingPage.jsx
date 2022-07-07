@@ -22,8 +22,9 @@ export default function UserSettingPage({ user, setUser }) {
             user.name = username; // update the username.
             const newUser = await usersService.changeUsername(user);
             setUser(newUser);
-        } catch {
+        } catch (error) {
             //   setError('Change username failed - Try Again');
+            console.log("error: ", error);
             alert('Change username failed - Try Again');
         }
     }
