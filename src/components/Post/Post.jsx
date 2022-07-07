@@ -3,11 +3,18 @@ import * as postsAPI from "../../utilities/posts-api"
 import { MoreVert } from "@mui/icons-material/"
 import { Favorite } from "@mui/icons-material/"
 import moment from "moment"
+import { useState } from "react"
 
 export default function Post({ user, post }) {
 	const handleDelete = () => {
 		console.log(post._id)
 		postsAPI.deletePost(post._id)
+	}
+	const [like, setLike] = useState(0)
+	const [isLiked, setIsLiked] = useState(false)
+	const likeHandler = () => {
+		setLike(isLiked ? like - 1 : like + 1)
+		setIsLiked(!isLiked)
 	}
 	// console.log(post)
 	return (
@@ -42,8 +49,8 @@ export default function Post({ user, post }) {
 					</div>
 					<div className='postBottom'>
 						<div className='postBottomLeft'>
-							<Favorite />
-							<span className='postFavorites'>{post.likes} people liked this</span>
+							<Favorite onClick={likeHandler} />
+							<span className='postFavorites'>{like} people liked this</span>
 						</div>
 						<div className='postBottomRight'>
 							<span className='postComment'>{post.comment}comments</span>
