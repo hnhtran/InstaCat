@@ -1,7 +1,12 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  max-width: 300px;
+  position: fixed;
+  right: 0;
+  top: 20;
+  margin: 2em;
 }
 
 .cat-fact-button {
@@ -18,6 +23,7 @@
   border-radius: 0.5vmin;
   outline: none;
   cursor: pointer;
+  gap: 2em;
   /* width: 20px;
   height: 20px; */
 }

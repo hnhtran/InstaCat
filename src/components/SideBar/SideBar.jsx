@@ -15,7 +15,7 @@ export default function SideBar() {
     <div className="sidebar">
       {/* {searchCatFacts()} */}
       <button className="cat-fact-button" onClick={() => searchCatFacts()}>Click for Random Cat Facts</button>
-      <h5>{fact}</h5>
+      <h4>{fact}</h4>
     </div>
   );
 }
