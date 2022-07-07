@@ -3,6 +3,9 @@ import { MoreVert } from "@mui/icons-material/"
 
 import { Favorite } from "@mui/icons-material/"
 export default function Post({user, post}) {
+	const handleDelete = () => {
+		alert('delete?')
+	}
 	// console.log(post)
 	return (
 		<>
@@ -10,8 +13,9 @@ export default function Post({user, post}) {
 				<div className='postWrapper'>
 					<div className='postTop'>
 						<div className='postTopLeft'>
-							<span className='postUsername'>{}</span>
+							<span className='postUsername'>{post.userName}</span>
 							<span className='postDate'>{post.updatedAt}</span>
+							<button onClick={handleDelete}>delete</button>
 						</div>
 						<div className='postTopRight'>
 							<MoreVert />

@@ -9,6 +9,7 @@ export default function NewPost({user, post, setPost}) {
 	console.log(user)
   const [postData, setPostData] = useState({
 	userId: user._id,
+  userName: user.name,
     description: "",
     image: "",
   })
