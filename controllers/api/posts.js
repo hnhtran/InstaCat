@@ -73,7 +73,7 @@ async function updatePost(req, res) {
 // delete a post
 async function deletePost(req, res) {
     console.log(req.body)
-    const postId = req.body
+    const postId = req.body.postId
     const userId = req.params.id
     try {
         const post = await Post.findById(postId)

@@ -8,9 +8,10 @@ import { useParams } from "react-router-dom"
 
 export default function Post({ user, post }) {
 	let { userId } = useParams()
+	const postIdObj = { postId: post._id}
 	const handleDelete = () => {
-		console.log(`${userId}, ${post._id}`)
-		userProfileAPI.deletePost(userId, post._id)
+		console.log(`${userId}, ${postIdObj}`)
+		userProfileAPI.deletePost(userId, postIdObj)
 	}
 	const [like, setLike] = useState(0)
 	const [isLiked, setIsLiked] = useState(false)
