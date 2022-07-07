@@ -2,9 +2,9 @@ import "./Post.css"
 import * as postsAPI from "../../utilities/posts-api"
 import { MoreVert } from "@mui/icons-material/"
 import { Favorite } from "@mui/icons-material/"
-import moment from 'moment'
+import moment from "moment"
 
-export default function Post({user, post}) {
+export default function Post({ user, post }) {
 	const handleDelete = () => {
 		console.log(post._id)
 		postsAPI.deletePost(post._id)
@@ -17,8 +17,12 @@ export default function Post({user, post}) {
 					<div className='postTop'>
 						<div className='postTopLeft'>
 							<span className='postUsername'>{post.userName}</span>
-							<span className='postDate'>Created: {new Date(post.createdAt).toLocaleDateString()} </span>
-							<span className='postDate'>Updated: {moment(post.updatedAt).fromNow()}</span>
+							<span className='postDate'>
+								Created: {new Date(post.createdAt).toLocaleDateString()}{" "}
+							</span>
+							<span className='postDate'>
+								Updated: {moment(post.updatedAt).fromNow()}
+							</span>
 							<button onClick={handleDelete}>delete</button>
 						</div>
 						<div className='postTopRight'>
@@ -27,24 +31,22 @@ export default function Post({user, post}) {
 					</div>
 
 					<div className='postCenter'>
+						<span className='postText'>
+							{post.description} <hr />
+							<br />
+						</span>
 
-						<span className='postText'>Look at this cutie! <hr /><br /></span>
-						
-						
 						{/* <img alt='rascal' src={require("./rascal-1.jpg")} /> */}
 
-						<span className='postText'>{post.description}</span>
-						<br />
 						<img alt='rascal' src={post.image} />
-
 					</div>
 					<div className='postBottom'>
 						<div className='postBottomLeft'>
 							<Favorite />
-							<span className='postFavorites'>9 likes</span>
+							<span className='postFavorites'>{post.likes} people liked this</span>
 						</div>
 						<div className='postBottomRight'>
-							<span className='postComment'>2 comments</span>
+							<span className='postComment'>{post.comment}comments</span>
 						</div>
 					</div>
 				</div>
