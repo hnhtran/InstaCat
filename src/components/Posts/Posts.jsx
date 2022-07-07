@@ -6,8 +6,8 @@ import { useParams } from "react-router-dom"
 
 const Posts = ({user, post, setPost}) => {
   const [posts, setPosts] = useState('')
-  let {userId} = useParams() 
-  console.log(userId)
+  // let {userId} = useParams() 
+  // console.log(userId)
 
 
   // load posts from database
