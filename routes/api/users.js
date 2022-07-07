@@ -9,6 +9,8 @@ router.post('/', usersCtrl.create)
 router.post('/login', usersCtrl.login)
 // POST /api/users/changeUsername
 router.post('/changeUsername', usersCtrl.changeUsername)
+// POST /api/users/changePassword
+router.post('/changePassword', usersCtrl.changePassword )
 
 // router.get('/profiles/:id', postsCtrl.getPosts) // show all posts
 // router.post('/profiles', postsCtrl.createPost)

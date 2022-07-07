@@ -9,3 +9,7 @@ export function getPosts(userId) {
 export function createPost(postData, userId) {
     return sendRequest(BASE_URL, 'POST', postData)
 }
+
+export function deletePost(userId, id) {
+    return sendRequest(`${BASE_URL}/${userId}`, 'DELETE', id)
+}

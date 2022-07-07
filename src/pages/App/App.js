@@ -30,7 +30,7 @@ export default function App() {
               }
             ></Route>
             < Route path='/api/users/profiles/:userId' element={<UserProfilePage user={user} post={post} setPost={setPost}/>}></Route>
-            <Route path="/api/users/profiles/:userId/setting" element={<UserSettingPage user={user} post={post} setPost={setPost}/>}></Route>
+            <Route path="/api/users/profiles/:userId/setting" element={<UserSettingPage user={user} setUser={setUser} post={post} setPost={setPost}/>}></Route>
              {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
           <Route path="/*" element={<Navigate to="/api/posts" />} />
           </Routes>
