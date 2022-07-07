@@ -2,12 +2,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 250px;
 }
 
 .cat-fact-button {
   margin: 1em;
-  padding: 2em;
+  /* padding: 2em; */
   color: #c49474;
   background-color: #c4b1ac;
   text-align: center;
