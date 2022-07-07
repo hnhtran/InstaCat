@@ -16,7 +16,7 @@ export default function Post({ user, post }) {
 		setLike(isLiked ? like - 1 : like + 1)
 		setIsLiked(!isLiked)
 	}
-	// console.log(post)
+
 	return (
 		<>
 			<div className='post'>
