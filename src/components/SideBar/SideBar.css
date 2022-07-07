@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   max-width: 300px;
   position: fixed;
   right: 0;
@@ -10,9 +11,9 @@
 }
 
 .cat-fact-button {
-  margin: 1em;
+  /* margin: 1em; */
   /* padding: 2em; */
-  color: #c49474;
+  color: black;
   background-color: #c4b1ac;
   text-align: center;
   font-size: 20px;
@@ -28,3 +29,22 @@
   height: 20px; */
 }
 
+.cat {
+  animation: float 4s ease-in-out infinite;
+  width: 250px;
+}
+
+@keyframes float {
+  0% {
+    filter: drop-shadow(5px 15px 5px black);
+    transform: translateY(0px);
+  }
+  50% {
+    filter: drop-shadow(25px 30px 15px black);
+    transform: translateY(-10px);
+  }
+  100% {
+    filter: drop-shadow(5px 15px 5px black);
+    transform: translateY(0px);
+  }
+}
