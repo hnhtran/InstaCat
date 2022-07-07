@@ -14,6 +14,6 @@ export function getById(id) {
 //     return sendRequest(`${BASE_URL}`, 'POST', postData)
 // }
 
-export function deletePost(id) {
-    return sendRequest(`${BASE_URL}/${id}`, 'DELETE', id)
-}
+// export function deletePost(id) {
+//     return sendRequest(`${BASE_URL}/${id}`, 'DELETE', id)
+// }
