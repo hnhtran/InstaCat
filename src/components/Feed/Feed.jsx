@@ -13,10 +13,10 @@ export default function Feed({user, post, setPost}) {
 					{userId ? 
 					<>
 					<NewPost user={user} post={post} setPost={setPost}/> 
-					<Posts post={post} setPost={setPost}/>
+					<Posts user={user} post={post} setPost={setPost}/>
 					</>
 					
-					: <Posts post={post} setPost={setPost}/>}
+					: <Posts user={user} post={post} setPost={setPost}/>}
 					
 					
 				</div>

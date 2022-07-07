@@ -1,19 +1,26 @@
 import React from 'react'
 import Post from '../Post/Post'
 import * as postsAPI from '../../utilities/posts-api'
+import * as usersProfilesAPI from '../../utilities/userProfile-api'
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 
 const Posts = ({user, post, setPost}) => {
   const [posts, setPosts] = useState('')
-  // let {userId} = useParams() 
-  // console.log(userId)
+  let userID
+  // { userId } is default name ob object in react to retrieve useParams
+  let { userId } = useParams()
+  userId ? userID = userId : userID = 0
+  console.log(user._id)
 
 
   // load posts from database
   useEffect(() => {
     const getPosts = async () => {
-      const updatedPosts = await postsAPI.getPosts()
+      if (!userId) {
+        const updatedPosts = await postsAPI.getPosts()
+      }
+      const updatedPosts = await usersProfilesAPI.getPosts(userId)
       // const data = await response.json()
       // console.log(updatedPosts)
       setPosts(updatedPosts)
@@ -26,7 +33,10 @@ const Posts = ({user, post, setPost}) => {
     <div>
         <h1>Posts</h1>
         {/* {console.log(posts[3])} */}
-        {posts ? 
+         {/* if req.params == userid ? run the map
+         
+         */}
+        {posts ?  
         posts.map(item => <Post user={user} post={item} />)
         : <p>Loading...</p>}
         {/* <Post user={user} post={post} setPost={setPost}/> */}

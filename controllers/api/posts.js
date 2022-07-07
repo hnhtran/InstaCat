@@ -23,15 +23,26 @@ async function createPost(req, res) {
 
 // show all posts
 async function getPosts(req, res) {
-    console.log(req.params._id)
+    console.log(req.params)
+    if (req.params.id) {
     try {
-        const posts = await Post.find({})
+        const posts = await Post.find({ userId: req.params.id })
         .sort({ updatedAt: -1 }) // sort current one first
-        // console.log(posts)
+        // console.log(posts[0].userId)
         res.json(posts)
     } catch (err) {
         res.json({ message: err })
     }
+} else {
+    try {
+        const posts = await Post.find({})
+        .sort({ updatedAt: -1 }) // sort current one first
+        // console.log(posts[0].userId)
+        res.json(posts)
+    } catch (err) {
+        res.json({ message: err })
+    }
+}
 }
 // get/show a post by id
 async function getPost(req, res) {
