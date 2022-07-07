@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path')
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const bodyParser = require('body-parser');
 
 // Always require and configure near the top
 require('dotenv').config()
@@ -11,6 +12,8 @@ require('./config/database')
 
 const app = express()
 
+app.use(bodyParser.json({ limit: '30mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(logger('dev'))
 // body parser middleware - adds properties to req.body
 app.use(express.json())
@@ -25,7 +28,7 @@ app.use('/api/users', require('./routes/api/users'))
 
 // Protect the api routes below from anonymous users
 const ensureLoggedIn = require('./config/ensureLoggedIn')
-// app.use('/api/posts', ensureLoggedIn, require('./routes/api/posts'))
+// app.use('api/users/profile', ensureLoggedIn, require('./routes/api/users'))
 app.use('/api/posts', require('./routes/api/posts'))
 
 // The following "catch all" route (note the *) is necessary

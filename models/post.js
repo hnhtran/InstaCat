@@ -6,13 +6,17 @@ const postSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    userName: {
+        type: String,
+        required: true
+    },
     likes: [],
     description: {
         type:   String,
         required: true
     },
     image: String,
-    createdAt: {
+    updatedAt: {
         type: Date,
         default: new Date()
     }

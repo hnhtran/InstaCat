@@ -12,11 +12,10 @@ module.exports = {
 }
 // createPost
 async function createPost(req, res) {
-    console.log('test')
     try {
-        const post = await Post.create(req.body)
-        console.log(post)
-        res.json(post)
+        const newPost = await Post.create(req.body)
+        console.log(newPost)
+        res.json(newPost)
     } catch (err) {
         res.json({ message: err })
     }
@@ -24,8 +23,10 @@ async function createPost(req, res) {
 
 // show all posts
 async function getPosts(req, res) {
+    console.log(req.params._id)
     try {
-        const posts = await Post.find()
+        const posts = await Post.find({})
+        .sort({ updatedAt: -1 }) // sort current one first
         // console.log(posts)
         res.json(posts)
     } catch (err) {
@@ -59,19 +60,20 @@ async function updatePost(req, res) {
 }
 // delete a post
 async function deletePost(req, res) {
-    const userId = req.user._id
-    const postId = req.params.id
-    try {
-        const post = await Post.findById(postId)
-        if (post.userId !== userId) {
-            res.status(401).json({ message: 'Unauthorized delete' })
-        } else {
-            await Post.findByIdAndDelete(postId)
-            res.json({ message: 'Post deleted' })
-        }
-    } catch (err) {
-        res.json(err)
-    }
+    console.log(req.body)
+    // const userId = req.user._id
+    // const postId = req.params.id
+    // try {
+    //     const post = await Post.findById(postId)
+    //     if (post.userId !== userId) {
+    //         res.status(401).json({ message: 'Unauthorized delete' })
+    //     } else {
+    //         await Post.findByIdAndDelete(postId)
+    //         res.json({ message: 'Post deleted' })
+    //     }
+    // } catch (err) {
+    //     res.json(err)
+    // }
 }
 // like or unlike a post
 async function likePost(req, res) {

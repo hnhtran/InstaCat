@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as usersService from '../../utilities/users-service';
+import * as usersService from '../../utilities/users-service'
 
 import './LoginForm.css';
 export default function LoginForm({ setUser }) {
@@ -18,7 +18,6 @@ export default function LoginForm({ setUser }) {
     
     evt.preventDefault();
     try {
-      
       const user = await usersService.login(credentials);
       setUser(user);
     } catch {
