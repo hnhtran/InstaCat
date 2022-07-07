@@ -37,7 +37,7 @@ const Posts = ({user, post, setPost}) => {
          
          */}
         {posts ?  
-        posts.map(item => <Post user={user} post={item} />)
+        posts.map(item => <Post posts={posts} setPosts={setPosts} user={user} post={item} />)
         : <p>Loading...</p>}
         {/* <Post user={user} post={post} setPost={setPost}/> */}
     </div>
