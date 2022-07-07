@@ -8,5 +8,6 @@ router.post('/', usersCtrl.create)
 router.post('/login', usersCtrl.login)
 // POST /api/users/changeUsername
 router.post('/changeUsername', usersCtrl.changeUsername)
-
+// POST /api/users/changePassword
+router.post('/changePassword', usersCtrl.changePassword )
 module.exports = router

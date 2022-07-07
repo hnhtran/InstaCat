@@ -20,6 +20,12 @@ export async function changeUsername(userData) {
     localStorage.setItem('token', token)
     return getUser()
 }
+export async function changePassword(userData) {
+    const token = await usersAPI.changePassword(userData)
+    localStorage.setItem('token', token)
+    return getUser()
+}
+
 
 export function logOut() {
     localStorage.removeItem('token')
