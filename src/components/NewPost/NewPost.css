@@ -39,7 +39,7 @@
 
 .newPostsBottom {
 	display: flex;
-
+	align-items: center;
 	justify-content: space-between;
 }
 
@@ -50,8 +50,8 @@
 
 .option {
 	display: flex;
-
-	margin-right: 18px;
+	align-items: center;
+	margin-right: 15px;
 	cursor: pointer;
 }
 
@@ -62,13 +62,11 @@
 	font-weight: 500;
 }
 
-.icon {
+.icon{
 	font-style: 18px;
 	margin-right: 3px;
 }
 
 .newPostsText {
-	margin-right: 10px;
+	margin-right: 3px;
 }
-
-
