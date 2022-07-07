@@ -73,19 +73,19 @@ async function updatePost(req, res) {
 // delete a post
 async function deletePost(req, res) {
     console.log(req.body)
-    // const userId = req.user._id
-    // const postId = req.params.id
-    // try {
-    //     const post = await Post.findById(postId)
-    //     if (post.userId !== userId) {
-    //         res.status(401).json({ message: 'Unauthorized delete' })
-    //     } else {
-    //         await Post.findByIdAndDelete(postId)
-    //         res.json({ message: 'Post deleted' })
-    //     }
-    // } catch (err) {
-    //     res.json(err)
-    // }
+    const userId = req.user._id
+    const postId = req.params.id
+    try {
+        const post = await Post.findById(postId)
+        if (post.userId !== userId) {
+            res.status(401).json({ message: 'Unauthorized delete' })
+        } else {
+            await Post.findByIdAndDelete(postId)
+            res.json({ message: 'Post deleted' })
+        }
+    } catch (err) {
+        res.json(err)
+    }
 }
 // like or unlike a post
 async function likePost(req, res) {
