@@ -3,7 +3,7 @@ import "./NewPost.css";
 import FileBase64 from "react-file-base64";
 import { useParams } from "react-router-dom"
 import { useState } from "react";
-import { createPost } from '../../utilities/userProfile-api'
+import { createPost } from '../../utilities/posts-api'
 
 
 export default function NewPost({user, post, setPost}) {
@@ -32,7 +32,7 @@ export default function NewPost({user, post, setPost}) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		// console.log(postData)
-		const newPost = await createPost(postData, userId)
+		const newPost = await createPost(postData)
 		// console.log(post)
 		setPost(newPost)
 	}
