@@ -38,7 +38,7 @@ app.get('/*', (req, res) => {
 
 // Configure express app to listen on port 3001
 // to avoid conflicting with the react server
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 app.listen(port, () => {
     console.log(`Listening, express app on port ${port}`)
 })
