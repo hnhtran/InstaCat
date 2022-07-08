@@ -25,6 +25,11 @@ export async function changePassword(userData) {
     localStorage.setItem('token', token)
     return getUser()
 }
+export async function changeAvatar(userData) {
+    const token = await usersAPI.changeAvatar(userData)
+    localStorage.setItem('token', token)
+    return getUser()
+}
 
 
 export function logOut() {

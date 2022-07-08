@@ -7,7 +7,8 @@ module.exports = {
     create,
     login,
     changeUsername,
-    changePassword
+    changePassword,
+    changeAvatar
 }
 
 
@@ -51,6 +52,20 @@ async function changeUsername(req, res) {
     }
 }
 
+// change avatar
+async function changeAvatar(req, res) {
+    try {
+        const newAvatar = req.body.avatar;
+        const newUser = await User.findOneAndUpdate(
+            { email: req.body.email },
+            { avatar: newAvatar },
+            { new: true })
+        res.json(createJWT(newUser))
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
+
 // change password
 async function changePassword(req, res) {
     try {
@@ -67,7 +82,7 @@ async function changePassword(req, res) {
         res.json(createJWT(user))
     } catch (error) {
         // console.log("error: ", error.message)
-        res.status(400).json({"error": error.message})
+        res.status(400).json({ "error": error.message })
     }
 }
 
