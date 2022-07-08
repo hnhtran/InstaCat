@@ -11,7 +11,7 @@ require('./config/database')
 
 const app = express()
 
-// app.use(bodyParser.json({ limit: '30mb', extended: true }))
+app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(logger('dev'))
 // body parser middleware - adds properties to req.body
