@@ -10,6 +10,7 @@ import UserSettingPage from "../UserSettingPage/UserSettingPage";
 import UserProfilePage from "../UserProfilePage/UserProfilePage";
 import SideBar from "../../components/SideBar/SideBar";
 import CreatePost from "../../pages/CreatePost/CreatePost";
+import UpdatePostPage from '../../pages/UpdatePostPage/UpdatePostPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -24,6 +25,10 @@ export default function App() {
             <Route
               path="/api/users/profiles/:userId/post"
               element={<CreatePost user={user} post={post} setPost={setPost} />}
+            ></Route>
+            <Route
+              path="/api/users/profiles/:userId/post/:postid"
+              element={<UpdatePostPage user={user} post={post} setPost={setPost} />}
             ></Route>
             <Route
               path="/api/posts"

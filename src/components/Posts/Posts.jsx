@@ -17,7 +17,7 @@ const Posts = ({user, post, setPost}) => {
       if (!userId) {
         const updatedPosts = await postsAPI.getPosts()
         // const data = await updatedPosts.json()
-      console.log(updatedPosts)
+      // console.log(updatedPosts)
         setPosts(updatedPosts)
       }
       else {

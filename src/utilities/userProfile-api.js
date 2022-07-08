@@ -14,6 +14,6 @@ export function deletePost(userId, postIdObj) {
     return sendRequest(`${BASE_URL}/${userId}`, 'DELETE', postIdObj)
 }
 
-// export function updatePost(userId, postIdObj) {
-//     return sendRequest(`${BASE_URL}/${userId}`, 'PUT', postIdObj)
-// }
+export function updatePost(userId, postIdObjData) {
+    return sendRequest(`${BASE_URL}/${userId}`, 'PUT', postIdObjData)
+}

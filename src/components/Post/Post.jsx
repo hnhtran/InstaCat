@@ -5,21 +5,34 @@ import { Favorite } from "@mui/icons-material/"
 import moment from "moment"
 import { useState, useEffect } from "react"
 import { useParams, Navigate, Link } from "react-router-dom"
+import UpdatePostForm from "../UpdatePostForm/UpdatePostForm"
 
 export default function Post({ user, post, setPosts, posts }) {
+	const [isUpdate, setIsUpdate] = useState(false)
 	let { userId } = useParams()
 	const postIdObj = { postId: post._id}
 
+	const [postData, setPostData] = useState({
+		userId: user._id,
+		userName: user.name,
+		likes: 0,
+		  description: "",
+		  image: "",
+		})
+
 	const handleDelete = () => {
-		// console.log(`${userId}, ${postIdObj}`)
 		userProfileAPI.deletePost(userId, postIdObj)
 		setPosts(posts.filter(item => item._id !== post._id))
 	}
 
-	// const handleUpdate = () => {
-	// 	// console.log(`${userId}, ${postIdObj}`)
-	// 	userProfileAPI.updatePost(userId, postIdObj)
-	// }
+	const handleUpdate = () => {
+		console.log(postData)
+		const postIdObjData = {
+			postId: post._id,
+			postData: postData,
+		}
+		userProfileAPI.updatePost(userId, postIdObjData)
+	}
 
 	const [like, setLike] = useState(0)
 	const [isLiked, setIsLiked] = useState(false)
@@ -53,8 +66,12 @@ export default function Post({ user, post, setPosts, posts }) {
 								Updated: {moment(post.updatedAt).fromNow()}
 							</span>
 							<button onClick={handleDelete}>delete</button>
-							<button onClick={<Link to={`/api/user/${userId}/post/${post._id}`}/>}>update</button>
-							{/* <button onClick={handleUpdate}>update</button> */}
+							{/* <Link to={`/api/users/${userId}/post/${post._id}`}><h1>Update</h1></Link> */}
+							<button onClick={()=>setIsUpdate(true)}>Update</button>
+							{isUpdate && <UpdatePostForm posts={posts} setPosts={setPosts} user={user} post={post} handleUpdate={handleUpdate} postData={postData} setPostData={setPostData}/>}
+							{/* {console.log(isUpdate)} */}
+							
+							
 						</div>
 						<div className='postTopRight'>
 							<MoreVert />

@@ -83,7 +83,7 @@ export default function UserSettingPage({ user, setUser }) {
             </form>
 
             <form autoComplete="off" className="form-username" onSubmit={handleSubmitUserName}>
-                <label>Username</label>
+                <label>New Username</label>
                 <input type="text" placeholder="New username" name="username" value={username} onChange={handleChangeUserName} required />
                 <button type="submit" >Submit</button>
             </form>
