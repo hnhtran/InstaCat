@@ -56,15 +56,19 @@ async function getPost(req, res) {
 }
 //update a post
 async function updatePost(req, res) {
-    // req.postIdObj
+    // console.log(req.body)
     const postId = req.body.postId
     const userId = req.params.id
     try {
         const post = await Post.findById(postId)
         if (post.userId !== userId) {
-            res.status(401).json({ message: 'Unauthorized' })
+            res.status(401).json({ message: 'Unauthorized to update' })
         } else {
-            const updatedPost = await Post.findByIdAndUpdate(postId, req.body, { new: true })
+            if (req.body.postData.description === '') {
+                req.body.postData.description = post.description
+            }
+            const updatedPost = await Post.findByIdAndUpdate(postId, req.body.postData, { new: true })
+            // console.log(updatedPost.description)
             res.json(updatedPost)
         }
     } catch (err) {

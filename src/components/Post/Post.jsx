@@ -12,17 +12,27 @@ export default function Post({ user, post, setPosts, posts }) {
 	let { userId } = useParams()
 	const postIdObj = { postId: post._id}
 
+	const [postData, setPostData] = useState({
+		userId: user._id,
+		userName: user.name,
+		likes: 0,
+		  description: "",
+		  image: "",
+		})
 
 	const handleDelete = () => {
-		// console.log(`${userId}, ${postIdObj}`)
 		userProfileAPI.deletePost(userId, postIdObj)
 		setPosts(posts.filter(item => item._id !== post._id))
 	}
 
-	// const handleUpdate = () => {
-	// 	// console.log(`${userId}, ${postIdObj}`)
-	// 	userProfileAPI.updatePost(userId, postIdObj)
-	// }
+	const handleUpdate = () => {
+		console.log(postData)
+		const postIdObjData = {
+			postId: post._id,
+			postData: postData,
+		}
+		userProfileAPI.updatePost(userId, postIdObjData)
+	}
 
 	const [like, setLike] = useState(0)
 	const [isLiked, setIsLiked] = useState(false)
@@ -58,8 +68,8 @@ export default function Post({ user, post, setPosts, posts }) {
 							<button onClick={handleDelete}>delete</button>
 							{/* <Link to={`/api/users/${userId}/post/${post._id}`}><h1>Update</h1></Link> */}
 							<button onClick={()=>setIsUpdate(true)}>Update</button>
-							{isUpdate && <UpdatePostForm />}
-							{console.log(isUpdate)}
+							{isUpdate && <UpdatePostForm posts={posts} setPosts={setPosts} user={user} post={post} handleUpdate={handleUpdate} postData={postData} setPostData={setPostData}/>}
+							{/* {console.log(isUpdate)} */}
 							
 							
 						</div>
