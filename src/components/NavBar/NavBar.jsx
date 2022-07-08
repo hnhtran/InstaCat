@@ -18,10 +18,10 @@ const NavBar = ({ user, setUser }) => {
         <h1>InstaCat</h1>
       </div>
       <div className='icons'>
-      <Link to='/api/posts'><img src="/images/homeicon.png" className='icon' alt=""/></Link>
-      <Link to={`/api/users/profiles/${user._id}/post`}><img src="/images/newposticon.png" className="icon" alt=""/></Link>
-      <Link to={`/api/users/profiles/${user._id}/setting`}><img src="/images/settings.png" className="icon" alt=""/></Link>
-      <Link to={`/api/users/profiles/${user._id}`}><img src={user.avatar} className="icon db profilePicture" alt=""/>{user.name}</Link>
+      <Link to='/'><img src="/images/homeicon.png" className='icon' alt=""/></Link>
+      <Link to={`/createPost`}><img src="/images/newposticon.png" className="icon" alt=""/></Link>
+      <Link to={`/settings`}><img src="/images/settings.png" className="icon" alt=""/></Link>
+      <Link to={`/profiles`}><img src={user.avatar} className="icon db profilePicture" alt=""/>{user.name}</Link>
       <Link to="" className="icon" onClick={handleLogOut}>Log Out</Link>
       </div>
     </div>

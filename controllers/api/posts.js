@@ -24,26 +24,16 @@ async function createPost(req, res) {
 
 // show all posts
 async function getPosts(req, res) {
-    // console.log(req.params.id)
-    if (req.params.id) {
+    console.log(req.query.userId)
+    let filterParams = req.query.userId ? { userId: req.query.userId } : {};
     try {
-        const posts = await Post.find({ userId: req.params.id })
-        .sort({ updatedAt: -1 }) // sort current one first
+        const posts = await Post.find(filterParams)
+            .sort({ updatedAt: -1 }) // sort current one first
         // console.log(posts[0].userId)
         res.json(posts)
     } catch (err) {
         res.json({ message: err })
     }
-} else {
-    try {
-        const posts = await Post.find({})
-        .sort({ updatedAt: -1 }) // sort current one first
-        console.log(posts[0].userId)
-        res.json(posts)
-    } catch (err) {
-        res.json({ message: err })
-    }
-}
 }
 // get/show a post by id
 async function getPost(req, res) {
@@ -57,17 +47,18 @@ async function getPost(req, res) {
 //update a post
 async function updatePost(req, res) {
     // console.log(req.body)
-    const postId = req.body.postId
-    const userId = req.params.id
+    const postData = req.body;
+    const userId = postData.userId
+    const postId = req.params.id
     try {
         const post = await Post.findById(postId)
         if (post.userId !== userId) {
             res.status(401).json({ message: 'Unauthorized to update' })
         } else {
-            if (req.body.postData.description === '') {
-                req.body.postData.description = post.description
+            if (postData.description === '') {
+                postData.description = post.description
             }
-            const updatedPost = await Post.findByIdAndUpdate(postId, req.body.postData, { new: true })
+            const updatedPost = await Post.findByIdAndUpdate(postId, postData, { new: true })
             // console.log(updatedPost.description)
             res.json(updatedPost)
         }
@@ -77,8 +68,9 @@ async function updatePost(req, res) {
 }
 // delete a post
 async function deletePost(req, res) {
-    const postId = req.body.postId
-    const userId = req.params.id
+    const postData = req.body;
+    const userId = postData.userId
+    const postId = req.params.id
     try {
         const post = await Post.findById(postId)
         if (post.userId !== userId) {

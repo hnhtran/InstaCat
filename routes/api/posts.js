@@ -6,10 +6,10 @@ const postsCtrl = require('../../controllers/api/posts')
 
 // show all posts
 router.get('/', postsCtrl.getPosts)
-// router.post('/', postsCtrl.createPost)
+router.post('/', postsCtrl.createPost)
 router.get('/:id', postsCtrl.getPost)
-// router.put('/:id', postsCtrl.updatePost)
-// router.delete('/:id', postsCtrl.deletePost)
+router.put('/:id', postsCtrl.updatePost)
+router.delete('/:id', postsCtrl.deletePost)
 router.post('/:id/like', postsCtrl.likePost)
 
 
