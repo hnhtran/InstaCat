@@ -65,9 +65,9 @@ export default function Post({ user, post, setPosts, posts }) {
 							<span className='postDate'>
 								Updated: {moment(post.updatedAt).fromNow()}
 							</span>
-							<button onClick={handleDelete}>delete</button>
+							<button className="deleteButton" onClick={handleDelete}>Delete</button>
 							{/* <Link to={`/api/users/${userId}/post/${post._id}`}><h1>Update</h1></Link> */}
-							<button onClick={() => setIsUpdate(true)}>Update</button>
+							<button className="updateButton" onClick={() => setIsUpdate(true)}>Update</button>
 							{isUpdate && (
 								<UpdatePostForm
 									posts={posts}
