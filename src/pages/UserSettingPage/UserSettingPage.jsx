@@ -57,7 +57,7 @@ export default function UserSettingPage({ user, setUser }) {
         <div className="user-setting">
             <h3>General settings</h3>
             <form autoComplete="off" className="form-username" onSubmit={handleSubmitUserName}>
-                <label>Username</label>
+                <label>New Username</label>
                 <input type="text" placeholder="New username" name="username" value={username} onChange={handleChangeUserName} required />
                 <button type="submit" >Submit</button>
             </form>

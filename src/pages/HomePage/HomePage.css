@@ -5,12 +5,13 @@
     margin: 0 auto;
     padding: 2em;
     /* gap: 5em; */
+    background-color: whitesmoke;
   }
   
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (max-width: 600px) {
     .home{
-      display: block;
+      /* display: block; */
       flex-direction: column;
       justify-content: center;
       margin: 0 auto;
@@ -19,10 +20,11 @@
   } 
   
   
-  /* Large devices (laptops/desktops, 992px and up)
-  @media only screen and (min-width: 992px) {
-  
-  } 
+  /* /* Large devices (laptops/desktops, 992px and up)
+  /* @media only screen and (min-width: 992px) { */
+    /* {
+      
+    } */
   
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   /* @media only screen and (min-width: 1200px) {
