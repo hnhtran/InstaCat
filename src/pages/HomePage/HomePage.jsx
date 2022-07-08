@@ -6,7 +6,7 @@ import './HomePage.css'
 import { useState } from "react";
 
 export default function Home({user, post, setPost}) {
-	console.log(user._id)
+	// console.log(user._id)
   return (
     <>
       

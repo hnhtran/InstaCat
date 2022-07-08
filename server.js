@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path')
-// const favicon = require('serve-favicon');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
@@ -17,9 +16,7 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(logger('dev'))
 // body parser middleware - adds properties to req.body
 app.use(express.json())
-// Configure both serve-favicon & static
 // middleware to server from the 'build' folder
-// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'build')))
 
 // Put API routes here, before the "catch all" route
@@ -41,7 +38,7 @@ app.get('/*', (req, res) => {
 
 // Configure express app to listen on port 3001
 // to avoid conflicting with the react server
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`Listening, express app on port ${port}`)
 })
