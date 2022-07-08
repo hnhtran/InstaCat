@@ -30,13 +30,14 @@ app.use('/api/users', require('./routes/api/users'))
 const ensureLoggedIn = require('./config/ensureLoggedIn')
 // app.use('/api/users/profiles', ensureLoggedIn, require('./routes/api/usersProfiles'))
 app.use('/api/users/profiles', require('./routes/api/userProfile'))
-app.use('/api/posts', require('./routes/api/posts'))
+// app.use('/api/posts', require('./routes/api/posts'))
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
+app.use('/', require('./routes/api/posts'))
 
 // Configure express app to listen on port 3001
 // to avoid conflicting with the react server
