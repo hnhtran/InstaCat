@@ -21,7 +21,7 @@ const NavBar = ({ user, setUser }) => {
       <Link to='/api/posts'><img src="/images/homeicon.png" className='icon' alt=""/></Link>
       <Link to={`/api/users/profiles/${user._id}/post`}><img src="/images/newposticon.png" className="icon" alt=""/></Link>
       <Link to={`/api/users/profiles/${user._id}/setting`}><img src="/images/settings.png" className="icon" alt=""/></Link>
-      <Link to={`/api/users/profiles/${user._id}`}><img src="/images/usericon.png" className="icon db" alt=""/>{user.name}</Link>
+      <Link to={`/api/users/profiles/${user._id}`}><img src={user.avatar} className="icon db profilePicture" alt=""/>{user.name}</Link>
       <Link to="" className="icon" onClick={handleLogOut}>Log Out</Link>
       </div>
     </div>
