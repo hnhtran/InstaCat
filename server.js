@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path')
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
@@ -19,7 +19,7 @@ app.use(logger('dev'))
 app.use(express.json())
 // Configure both serve-favicon & static
 // middleware to server from the 'build' folder
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
+// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'build')))
 
 // Put API routes here, before the "catch all" route
