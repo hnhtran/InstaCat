@@ -28,7 +28,7 @@ export default function LoginForm({ setUser }) {
   return (
     <div>
       <div className="form-container" onSubmit={handleSubmit}>
-          <h1>Instacats</h1>
+          <h1>Instacat</h1>
         <form autoComplete="off" >
           <label></label>
           <input type="text" placeholder='Email' name="email" value={credentials.email} onChange={handleChange} required />
