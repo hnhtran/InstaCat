@@ -10,19 +10,19 @@ import UpdatePostForm from "../UpdatePostForm/UpdatePostForm"
 export default function Post({ user, post, setPosts, posts }) {
 	const [isUpdate, setIsUpdate] = useState(false)
 	let { userId } = useParams()
-	const postIdObj = { postId: post._id}
+	const postIdObj = { postId: post._id }
 
 	const [postData, setPostData] = useState({
 		userId: user._id,
 		userName: user.name,
 		likes: 0,
-		  description: "",
-		  image: "",
-		})
+		description: "",
+		image: "",
+	})
 
 	const handleDelete = () => {
 		userProfileAPI.deletePost(userId, postIdObj)
-		setPosts(posts.filter(item => item._id !== post._id))
+		setPosts(posts.filter((item) => item._id !== post._id))
 	}
 
 	const handleUpdate = () => {
@@ -67,11 +67,19 @@ export default function Post({ user, post, setPosts, posts }) {
 							</span>
 							<button onClick={handleDelete}>delete</button>
 							{/* <Link to={`/api/users/${userId}/post/${post._id}`}><h1>Update</h1></Link> */}
-							<button onClick={()=>setIsUpdate(true)}>Update</button>
-							{isUpdate && <UpdatePostForm posts={posts} setPosts={setPosts} user={user} post={post} handleUpdate={handleUpdate} postData={postData} setPostData={setPostData}/>}
+							<button onClick={() => setIsUpdate(true)}>Update</button>
+							{isUpdate && (
+								<UpdatePostForm
+									posts={posts}
+									setPosts={setPosts}
+									user={user}
+									post={post}
+									handleUpdate={handleUpdate}
+									postData={postData}
+									setPostData={setPostData}
+								/>
+							)}
 							{/* {console.log(isUpdate)} */}
-							
-							
 						</div>
 						<div className='postTopRight'>
 							<MoreVert />
