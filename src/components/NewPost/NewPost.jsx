@@ -56,7 +56,7 @@ export default function NewPost({user, post, setPost}) {
         <form autoComplete="off">
           <div className="newPostsContainer">
             <div className="newPostsTop">
-              <img className="postsProfileimg" src='' alt="Add Photo" />
+              <img className="profilePicture" src={user.avatar} alt="Add Photo" />
               <input
                 placeholder="Show us your cats!"
                 className="newPostInput"
