@@ -82,7 +82,7 @@ export default function NewPost({user, post, setPost}) {
 				  {/* <input type='file' onChange={onImageChange}/> */}
                 </div>
               </div>
-              <button type="submit">Add post</button>
+              <button className="addPost" type="submit">Add post</button>
             </div>
           </div>
         </form>
