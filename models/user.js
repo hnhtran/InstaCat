@@ -19,6 +19,9 @@ const userSchema = new Schema({
         minLength: 3,
         required: true
     }, 
+    avatar:{
+        type: String
+    },
 }, {
     timestamps: true,
     // hash the password only, dont serialize/convert to string the password
