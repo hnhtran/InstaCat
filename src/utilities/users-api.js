@@ -18,3 +18,7 @@ export async function changeUsername(userData) {
 export async function changePassword(userData){
     return sendRequest(`${BASE_URL}/changePassword`,'POST', userData )
 }
+
+export async function changeAvatar(userData){
+    return sendRequest(`${BASE_URL}/changeAvatar`,'POST', userData )
+}

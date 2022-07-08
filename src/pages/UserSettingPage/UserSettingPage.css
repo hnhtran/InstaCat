@@ -2,7 +2,11 @@
     height: 100%;
 }
 
-.form-username, .form-password {
+.user-setting .dummy {
+    height: 100px;
+}
+
+.form-username, .form-password, .form-useravatar {
     grid-template-columns: 4fr;
     padding: 3vmin;
     background-color: white;
