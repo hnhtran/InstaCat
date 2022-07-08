@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom"
 
 const Posts = ({user, post, setPost}) => {
   const [posts, setPosts] = useState('')
+  // console.log(post)
   // { userId } is default name ob object in react to retrieve useParams
   let { userId } = useParams()
 
@@ -17,7 +18,7 @@ const Posts = ({user, post, setPost}) => {
       if (!userId) {
         const updatedPosts = await postsAPI.getPosts()
         // const data = await updatedPosts.json()
-      // console.log(updatedPosts)
+      // console.log('updated posts ' + updatedPosts)
         setPosts(updatedPosts)
       }
       else {
