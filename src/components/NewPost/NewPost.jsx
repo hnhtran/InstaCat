@@ -56,7 +56,7 @@ export default function NewPost({user, post, setPost}) {
         <form autoComplete="off">
           <div className="newPostsContainer">
             <div className="newPostsTop">
-              <img className="postsProfileimg" src='' alt="Add Photo" />
+              <img className="profilePicture" src={user.avatar} alt="Add Photo" />
               <input
                 placeholder="Show us your cats!"
                 className="newPostInput"
@@ -82,7 +82,7 @@ export default function NewPost({user, post, setPost}) {
 				  {/* <input type='file' onChange={onImageChange}/> */}
                 </div>
               </div>
-              <button type="submit">Add post</button>
+              <button className="addPost" type="submit">Add post</button>
             </div>
           </div>
         </form>
