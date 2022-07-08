@@ -52,7 +52,7 @@ export default function App() {
               }
             ></Route>
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
-            {/* <Route path="/*" element={<Navigate to="/" />} /> */}
+            {/* <Route path="/*" element={<Navigate to="/api/posts" />} /> */}
           </Routes>
           <Footer />
         </>
