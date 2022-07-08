@@ -23,25 +23,21 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route
-              path="/api/users/profiles/:userId/post"
+              path="/createPost"
               element={<CreatePost user={user} post={post} setPost={setPost} />}
             ></Route>
             <Route
-              path="/api/users/profiles/:userId/post/:postid"
-              element={<UpdatePostPage user={user} post={post} setPost={setPost} />}
-            ></Route>
-            <Route
-              path="/api/posts"
+              path="/"
               element={<HomePage user={user} post={post} setPost={setPost} />}
             ></Route>
             <Route
-              path="/api/users/profiles/:userId"
+              path="/profiles"
               element={
                 <UserProfilePage user={user} post={post} setPost={setPost} />
               }
             ></Route>
             <Route
-              path="/api/users/profiles/:userId/setting"
+              path="/settings"
               element={
                 <UserSettingPage
                   user={user}

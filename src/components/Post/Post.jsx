@@ -1,17 +1,13 @@
 import "./Post.css"
-import * as userProfileAPI from "../../utilities/userProfile-api"
+import { updatePost, deletePost } from "../../utilities/posts-api"
 import { MoreVert } from "@mui/icons-material/"
 import { Favorite } from "@mui/icons-material/"
 import moment from "moment"
-import { useState, useEffect } from "react"
-import { useParams, Navigate, Link } from "react-router-dom"
+import { useState } from "react"
 import UpdatePostForm from "../UpdatePostForm/UpdatePostForm"
 
 export default function Post({ user, post, setPosts, posts }) {
 	const [isUpdate, setIsUpdate] = useState(false)
-	let { userId } = useParams()
-	const postIdObj = { postId: post._id }
-
 	const [postData, setPostData] = useState({
 		userId: user._id,
 		userName: user.name,
@@ -21,17 +17,18 @@ export default function Post({ user, post, setPosts, posts }) {
 	})
 
 	const handleDelete = () => {
-		userProfileAPI.deletePost(userId, postIdObj)
+		const postObj = {
+			_id: post._id,
+			userId: user._id,
+		}
+		deletePost(postObj)
 		setPosts(posts.filter((item) => item._id !== post._id))
 	}
 
 	const handleUpdate = () => {
 		console.log(postData)
-		const postIdObjData = {
-			postId: post._id,
-			postData: postData,
-		}
-		userProfileAPI.updatePost(userId, postIdObjData)
+		postData._id = post._id;
+		updatePost(postData)
 	}
 
 	const [like, setLike] = useState(0)
