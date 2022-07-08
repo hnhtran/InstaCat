@@ -4,21 +4,22 @@ import { MoreVert } from "@mui/icons-material/"
 import { Favorite } from "@mui/icons-material/"
 import moment from "moment"
 import { useState, useEffect } from "react"
-import { useParams, Navigate } from "react-router-dom"
+import { useParams, Navigate, Link } from "react-router-dom"
 
 export default function Post({ user, post, setPosts, posts }) {
 	let { userId } = useParams()
 	const postIdObj = { postId: post._id}
 
-	// useEffect(() => {
-		
-	// }, [handleDelete])
-
 	const handleDelete = () => {
-		console.log(`${userId}, ${postIdObj}`)
+		// console.log(`${userId}, ${postIdObj}`)
 		userProfileAPI.deletePost(userId, postIdObj)
 		setPosts(posts.filter(item => item._id !== post._id))
 	}
+
+	// const handleUpdate = () => {
+	// 	// console.log(`${userId}, ${postIdObj}`)
+	// 	userProfileAPI.updatePost(userId, postIdObj)
+	// }
 
 	const [like, setLike] = useState(0)
 	const [isLiked, setIsLiked] = useState(false)
@@ -26,6 +27,17 @@ export default function Post({ user, post, setPosts, posts }) {
 		setLike(isLiked ? like - 1 : like + 1)
 		setIsLiked(!isLiked)
 	}
+
+	// const handleLike = () => {
+	// 	// console.log(`${userId}, ${postIdObj}`)
+	// 	userProfileAPI.likePost(userId, postIdObj)
+	// 	setPosts(posts.map(item => {
+	// 		if (item._id === post._id) {
+	// 			item.likes++
+	// 		}
+	// 		return item
+	// 	}))
+	// }
 
 	return (
 		<>
@@ -41,6 +53,8 @@ export default function Post({ user, post, setPosts, posts }) {
 								Updated: {moment(post.updatedAt).fromNow()}
 							</span>
 							<button onClick={handleDelete}>delete</button>
+							<button onClick={<Link to={`/api/user/${userId}/post/${post._id}`}/>}>update</button>
+							{/* <button onClick={handleUpdate}>update</button> */}
 						</div>
 						<div className='postTopRight'>
 							<MoreVert />

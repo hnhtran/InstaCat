@@ -10,6 +10,10 @@ export function createPost(postData, userId) {
     return sendRequest(BASE_URL, 'POST', postData)
 }
 
-export function deletePost(userId, postId) {
-    return sendRequest(`${BASE_URL}/${userId}`, 'DELETE', postId)
+export function deletePost(userId, postIdObj) {
+    return sendRequest(`${BASE_URL}/${userId}`, 'DELETE', postIdObj)
 }
+
+// export function updatePost(userId, postIdObj) {
+//     return sendRequest(`${BASE_URL}/${userId}`, 'PUT', postIdObj)
+// }

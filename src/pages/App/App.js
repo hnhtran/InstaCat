@@ -9,12 +9,11 @@ import Footer from "../../components/Footer/Footer";
 import UserSettingPage from "../UserSettingPage/UserSettingPage";
 import UserProfilePage from "../UserProfilePage/UserProfilePage";
 import SideBar from "../../components/SideBar/SideBar";
-import CreatePost  from "../../pages/CreatePost/CreatePost"
-
+import CreatePost from "../../pages/CreatePost/CreatePost";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [post, setPost] = useState('')
+  const [post, setPost] = useState("");
 
   return (
     <div className="App">
@@ -22,26 +21,39 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-          <Route path='/api/users/profiles/:userId/post' element={<CreatePost user={user} post={post} setPost={setPost}/>}></Route>
+            <Route
+              path="/api/users/profiles/:userId/post"
+              element={<CreatePost user={user} post={post} setPost={setPost} />}
+            ></Route>
             <Route
               path="/api/posts"
+              element={<HomePage user={user} post={post} setPost={setPost} />}
+            ></Route>
+            <Route
+              path="/api/users/profiles/:userId"
               element={
-                  <HomePage user={user} post={post} setPost={setPost}/>
+                <UserProfilePage user={user} post={post} setPost={setPost} />
               }
             ></Route>
-            < Route path='/api/users/profiles/:userId' element={<UserProfilePage user={user} post={post} setPost={setPost}/>}></Route>
-            <Route path="/api/users/profiles/:userId/setting" element={<UserSettingPage user={user} setUser={setUser} post={post} setPost={setPost}/>}></Route>
-             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
-          <Route path="/*" element={<Navigate to="/api/posts" />} />
+            <Route
+              path="/api/users/profiles/:userId/setting"
+              element={
+                <UserSettingPage
+                  user={user}
+                  setUser={setUser}
+                  post={post}
+                  setPost={setPost}
+                />
+              }
+            ></Route>
+            {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
+            <Route path="/*" element={<Navigate to="/api/posts" />} />
           </Routes>
           <Footer />
         </>
       ) : (
         <Routes>
-          <Route
-          path="/"
-          element={<AuthPage setUser={setUser}/>}
-        />
+          <Route path="/" element={<AuthPage setUser={setUser} />} />
         </Routes>
         // <AuthPage setUser={setUser} />
       )}
