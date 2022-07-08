@@ -5,10 +5,13 @@ import { Favorite } from "@mui/icons-material/"
 import moment from "moment"
 import { useState, useEffect } from "react"
 import { useParams, Navigate, Link } from "react-router-dom"
+import UpdatePostForm from "../UpdatePostForm/UpdatePostForm"
 
 export default function Post({ user, post, setPosts, posts }) {
+	const [isUpdate, setIsUpdate] = useState(false)
 	let { userId } = useParams()
 	const postIdObj = { postId: post._id}
+
 
 	const handleDelete = () => {
 		// console.log(`${userId}, ${postIdObj}`)
@@ -53,8 +56,12 @@ export default function Post({ user, post, setPosts, posts }) {
 								Updated: {moment(post.updatedAt).fromNow()}
 							</span>
 							<button onClick={handleDelete}>delete</button>
-							<button onClick={<Link to={`/api/user/${userId}/post/${post._id}`}/>}>update</button>
-							{/* <button onClick={handleUpdate}>update</button> */}
+							{/* <Link to={`/api/users/${userId}/post/${post._id}`}><h1>Update</h1></Link> */}
+							<button onClick={()=>setIsUpdate(true)}>Update</button>
+							{isUpdate && <UpdatePostForm />}
+							{console.log(isUpdate)}
+							
+							
 						</div>
 						<div className='postTopRight'>
 							<MoreVert />
