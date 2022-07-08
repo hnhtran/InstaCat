@@ -35,25 +35,9 @@
   box-sizing: border-box;
 }
 
-/* .instacat{
-  display: flex;
-  justify-content: center;
-  align-items: center
-} */
-
-/* .instacat h1{
-  margin: 0;
-  font-size: 50px;
-  color: rgba(225, 225, 225, 0.01);
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgjYWVdmf0m4cQry9QELppdBMdVIK3CljGew&usqp=CAU');
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: animate 40s ease-in-out infinite;
-  text-align: center;
-  /* text-transform: uppercase; */
-  /* font-weight: 900;
-}  */ 
+.instacat{
+  margin-left: 2em ;
+}
 
 @keyframes animate {
   0%,

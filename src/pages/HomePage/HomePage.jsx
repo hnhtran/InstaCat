@@ -9,14 +9,12 @@ export default function Home({user, post, setPost}) {
 	
   return (
     <>
-      {/* <NavBar /> */}
-      <div className="home-page">
+      
       <div className="home">
-        <Feed user={user} post={post} setPost={setPost}/>
         <Sidebar />
+        <Feed user={user} post={post} setPost={setPost}/>
       </div>
-      </div>
-      {/* <Footer /> */}
+      
     </>
   );
 }

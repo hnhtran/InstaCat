@@ -1,13 +1,18 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  max-width: 300px;
+  /* max-width: 250px; */
   position: fixed;
   right: 0;
   top: 20;
-  margin: 2em;
+  margin: 2em; 
+}
+
+.sb{
+   max-width: 240px; 
+   /* background-color: whitesmoke; */
 }
 
 .cat-fact-button {
@@ -25,12 +30,11 @@
   outline: none;
   cursor: pointer;
   gap: 2em;
-  /* width: 20px;
-  height: 20px; */
+
 }
 
 .cat {
-  animation: float 4s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
   width: 200px;
 }
 
@@ -48,3 +52,55 @@
     transform: translateY(0px);
   }
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 1090px) {
+  .sidebar{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 2em;
+  position: relative;
+} 
+.cat-fact-button {
+  color: black;
+  background-color: #c4b1ac;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: 0.1vmin solid #373619;
+  border-radius: 0.5vmin;
+  outline: none;
+  cursor: pointer;
+  gap: 2em;
+}
+}
+
+ /* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 601px) {
+  .sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;  
+    
+    }
+    
+ }   */
+
+
+ /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 1091px) { 
+    .sidebar{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 100;
+      position: fixed;
+    }
+    }

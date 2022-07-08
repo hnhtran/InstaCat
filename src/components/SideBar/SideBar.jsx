@@ -1,5 +1,6 @@
 import "./SideBar.css";
 import { useState } from "react";
+import { display } from "@mui/system";
 
 export default function SideBar() {
   const [fact, setFact] = useState("");
@@ -11,12 +12,13 @@ export default function SideBar() {
     console.log(data.fact);
     setFact(data.fact);
   };
+
   return (
     <div className="sidebar">
       {/* {searchCatFacts()} */}
       <img className="cat" src="/images/cat1.png" alt="" />
-      <button className="cat-fact-button" onClick={() => searchCatFacts()}>Click for Random Cat Facts</button>
-      <h4>{fact}</h4>
+      <button className="cat-fact-button" onClick={() => searchCatFacts()}>Random Cat Fact</button>
+      <h4 className="sb">{fact}</h4>
     </div>
   );
 }
