@@ -22,10 +22,6 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-          <Route
-              path="/"
-              element={<HomePage user={user} post={post} setPost={setPost} />}
-            ></Route>
             <Route
               path="/api/users/profiles/:userId/post"
               element={<CreatePost user={user} post={post} setPost={setPost} />}
@@ -56,7 +52,7 @@ export default function App() {
               }
             ></Route>
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
-            {/* <Route path="/*" element={<Navigate to="/api/posts" />} /> */}
+            <Route path="/*" element={<Navigate to="/api/posts" />} />
           </Routes>
           <Footer />
         </>
