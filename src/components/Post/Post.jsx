@@ -1,24 +1,29 @@
 import "./Post.css"
 import { updatePost, deletePost } from "../../utilities/posts-api"
-import { MoreVert, PostAddOutlined } from "@mui/icons-material/"
-import { Favorite } from "@mui/icons-material/"
+import { MoreVert, Favorite } from "@mui/icons-material/"
 import moment from "moment"
 import { useState } from "react"
 import UpdatePostForm from "../UpdatePostForm/UpdatePostForm"
+import { Avatar } from '@mui/material';
+
 
 export default function Post({ user, post, setPosts, posts }) {
-	const allowUpdate = post.userId === user._id;
+	const allowUpdate = post.user._id === user._id;
 	// console.log("allowUpdate: ", allowUpdate)
 	const [isUpdate, setIsUpdate] = useState(false)
 	const [postData, setPostData] = useState({
 		_id: post._id,
-		userId: post.userId,
+		user: post.user._id,
 		description: post.description,
 		image: post.image,
 	})
 
 	const handleDelete = async () => {
-		await deletePost(post)
+		const postObj = {
+			_id: post._id,
+			user: post.user._id,
+		}
+		await deletePost(postObj)
 		setPosts(posts.filter((item) => item._id !== post._id))
 	}
 
@@ -51,7 +56,10 @@ export default function Post({ user, post, setPosts, posts }) {
 				<div className='postWrapper'>
 					<div className='postTop'>
 						<div className='postTopLeft'>
-							<span className='postUsername'>{post.userName}</span>
+							<div>
+								<Avatar alt="User profile image" src={post.user.avatar} />
+								<div className='postUsername'>{post.user.name}</div>
+							</div>
 							<span className='postDate'>
 								Created: {new Date(post.createdAt).toLocaleDateString()}{" "}
 							</span>
