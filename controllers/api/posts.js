@@ -46,7 +46,7 @@ async function getPost(req, res) {
 }
 //update a post
 async function updatePost(req, res) {
-    // console.log(req.body)
+    console.log(req.body)
     const postData = req.body;
     const userId = postData.userId
     const postId = req.params.id
