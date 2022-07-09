@@ -7,7 +7,7 @@ import UpdatePostForm from "../UpdatePostForm/UpdatePostForm"
 import { Avatar } from '@mui/material';
 
 
-export default function Post({ user, post, setPosts, posts }) {
+export default function Post({ user, post, setPost, setPosts, posts }) {
 	const allowUpdate = post.user._id === user._id;
 	// console.log("allowUpdate: ", allowUpdate)
 	const [isUpdate, setIsUpdate] = useState(false)
@@ -18,7 +18,8 @@ export default function Post({ user, post, setPosts, posts }) {
 		image: post.image,
 	})
 
-	const handleDelete = async () => {
+	const handleDelete = async (event) => {
+		event.preventDefault();
 		const postObj = {
 			_id: post._id,
 			user: post.user._id,
@@ -27,9 +28,10 @@ export default function Post({ user, post, setPosts, posts }) {
 		setPosts(posts.filter((item) => item._id !== post._id))
 	}
 
-	const handleUpdate = async () => {
-		const updatedPosts =  await updatePost(postData)
-		setPosts(updatedPosts)
+	const handleUpdate = async (event) => {
+		event.preventDefault();
+		const updatedPost =  await updatePost(postData)
+		setPost(updatedPost)
 	}
 
 	const [like, setLike] = useState(0)
@@ -70,7 +72,7 @@ export default function Post({ user, post, setPosts, posts }) {
 								<div className="updateDeleteButtons">
 									<button className="deleteButton" onClick={handleDelete}>Delete</button>
 									<button className="updateButton" onClick={() => setIsUpdate(true)}>Update</button>
-
+									{console.log("isUpdate: ", isUpdate)}
 								</div>
 							}
 							{isUpdate && (

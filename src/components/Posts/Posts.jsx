@@ -19,7 +19,7 @@ const Posts = ({filterUserId, user, post, setPost}) => {
     <div>
         <h1>Posts</h1>
         {posts ?  
-        posts.map(item => <Post posts={posts} setPosts={setPosts} user={user} post={item} />)
+        posts.map(item => <Post posts={posts} setPosts={setPosts} user={user} post={item} setPost={setPost}/>)
         : <p>Loading...</p>}
         {/* <Post user={user} post={post} setPost={setPost}/> */}
     </div>
