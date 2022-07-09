@@ -13,7 +13,7 @@ export default function UserSettingPage({ user, setUser }) {
     });
 
     function handleChangeUserAvatar({ base64 }) {
-        console.log("new useravatar: ", base64);
+        // console.log("new useravatar: ", base64);
         setUserAvatar(base64);
     }
 

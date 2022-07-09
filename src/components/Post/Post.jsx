@@ -1,34 +1,30 @@
 import "./Post.css"
 import { updatePost, deletePost } from "../../utilities/posts-api"
-import { MoreVert } from "@mui/icons-material/"
+import { MoreVert, PostAddOutlined } from "@mui/icons-material/"
 import { Favorite } from "@mui/icons-material/"
 import moment from "moment"
 import { useState } from "react"
 import UpdatePostForm from "../UpdatePostForm/UpdatePostForm"
 
 export default function Post({ user, post, setPosts, posts }) {
+	const allowUpdate = post.userId === user._id;
+	// console.log("allowUpdate: ", allowUpdate)
 	const [isUpdate, setIsUpdate] = useState(false)
 	const [postData, setPostData] = useState({
-		userId: user._id,
-		userName: user.name,
-		likes: 0,
-		description: "",
-		image: "",
+		_id: post._id,
+		userId: post.userId,
+		description: post.description,
+		image: post.image,
 	})
 
-	const handleDelete = () => {
-		const postObj = {
-			_id: post._id,
-			userId: user._id,
-		}
-		deletePost(postObj)
+	const handleDelete = async () => {
+		await deletePost(post)
 		setPosts(posts.filter((item) => item._id !== post._id))
 	}
 
-	const handleUpdate = () => {
-		console.log(postData)
-		postData._id = post._id;
-		updatePost(postData)
+	const handleUpdate = async () => {
+		// console.log(postData)
+		await updatePost(postData)
 	}
 
 	const [like, setLike] = useState(0)
@@ -62,13 +58,15 @@ export default function Post({ user, post, setPosts, posts }) {
 							<span className='postDate'>
 								Updated: {moment(post.updatedAt).fromNow()}
 							</span>
-							<button className="deleteButton" onClick={handleDelete}>Delete</button>
-							{/* <Link to={`/api/users/${userId}/post/${post._id}`}><h1>Update</h1></Link> */}
-							<button className="updateButton" onClick={() => setIsUpdate(true)}>Update</button>
+							{allowUpdate &&
+								<div className="updateDeleteButtons">
+									<button className="deleteButton" onClick={handleDelete}>Delete</button>
+									<button className="updateButton" onClick={() => setIsUpdate(true)}>Update</button>
+
+								</div>
+							}
 							{isUpdate && (
 								<UpdatePostForm
-									posts={posts}
-									setPosts={setPosts}
 									user={user}
 									post={post}
 									handleUpdate={handleUpdate}
@@ -76,7 +74,6 @@ export default function Post({ user, post, setPosts, posts }) {
 									setPostData={setPostData}
 								/>
 							)}
-							{/* {console.log(isUpdate)} */}
 						</div>
 						<div className='postTopRight'>
 							<MoreVert />
