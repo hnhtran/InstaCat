@@ -15,7 +15,7 @@ async function createPost(req, res) {
     console.log(req.body)
     try {
         const newPost = await Post.create(req.body)
-        console.log(newPost)
+        // console.log(newPost)
         res.json(newPost)
     } catch (err) {
         res.json({ message: err })
@@ -24,10 +24,11 @@ async function createPost(req, res) {
 
 // show all posts
 async function getPosts(req, res) {
-    console.log(req.query.userId)
-    let filterParams = req.query.userId ? { userId: req.query.userId } : {};
+    // console.log(req.query.userId)
+    let filterParams = req.query.userId ? { user: req.query.userId } : {};
     try {
         const posts = await Post.find(filterParams)
+            .populate('user')
             .sort({ updatedAt: -1 }) // sort current one first
         // console.log(posts[0].userId)
         res.json(posts)
@@ -46,13 +47,12 @@ async function getPost(req, res) {
 }
 //update a post
 async function updatePost(req, res) {
-    console.log(req.body)
     const postData = req.body;
-    const userId = postData.userId
+    const userId = postData.user
     const postId = req.params.id
     try {
         const post = await Post.findById(postId)
-        if (post.userId !== userId) {
+        if (post.user.toString() !== userId) {
             res.status(401).json({ message: 'Unauthorized to update' })
         } else {
             if (postData.description === '') {
@@ -69,11 +69,11 @@ async function updatePost(req, res) {
 // delete a post
 async function deletePost(req, res) {
     const postData = req.body;
-    const userId = postData.userId
+    const userId = postData.user
     const postId = req.params.id
     try {
         const post = await Post.findById(postId)
-        if (post.userId !== userId) {
+        if (post.user.toString() !== userId) {
             res.status(401).json({ message: 'Unauthorized delete' })
         } else {
             await Post.findByIdAndDelete(postId)

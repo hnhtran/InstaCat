@@ -3,12 +3,9 @@ const Schema = mongoose.Schema
 
 const postSchema = mongoose.Schema(
 	{
-		userId: {
-			type: String,
-			required: true,
-		},
-		userName: {
-			type: String,
+		user: { 
+			type: Schema.Types.ObjectId, 
+			ref: 'User',
 			required: true,
 		},
 		likes: {

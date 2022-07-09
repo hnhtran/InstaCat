@@ -1,34 +1,35 @@
 import "./Post.css"
 import { updatePost, deletePost } from "../../utilities/posts-api"
-import { MoreVert } from "@mui/icons-material/"
-import { Favorite } from "@mui/icons-material/"
+import { MoreVert, Favorite } from "@mui/icons-material/"
 import moment from "moment"
 import { useState } from "react"
 import UpdatePostForm from "../UpdatePostForm/UpdatePostForm"
+import { Avatar } from '@mui/material';
+
 
 export default function Post({ user, post, setPosts, posts }) {
+	const allowUpdate = post.user._id === user._id;
+	// console.log("allowUpdate: ", allowUpdate)
 	const [isUpdate, setIsUpdate] = useState(false)
 	const [postData, setPostData] = useState({
-		userId: user._id,
-		userName: user.name,
-		likes: 0,
-		description: "",
-		image: "",
+		_id: post._id,
+		user: post.user._id,
+		description: post.description,
+		image: post.image,
 	})
 
-	const handleDelete = () => {
+	const handleDelete = async () => {
 		const postObj = {
 			_id: post._id,
-			userId: user._id,
+			user: post.user._id,
 		}
-		deletePost(postObj)
+		await deletePost(postObj)
 		setPosts(posts.filter((item) => item._id !== post._id))
 	}
 
-	const handleUpdate = () => {
-		console.log(postData)
-		postData._id = post._id;
-		updatePost(postData)
+	const handleUpdate = async () => {
+		// console.log(postData)
+		await updatePost(postData)
 	}
 
 	const [like, setLike] = useState(0)
@@ -55,20 +56,25 @@ export default function Post({ user, post, setPosts, posts }) {
 				<div className='postWrapper'>
 					<div className='postTop'>
 						<div className='postTopLeft'>
-							<span className='postUsername'>{post.userName}</span>
+							<div>
+								<Avatar alt="User profile image" src={post.user.avatar} />
+								<div className='postUsername'>{post.user.name}</div>
+							</div>
 							<span className='postDate'>
 								Created: {new Date(post.createdAt).toLocaleDateString()}{" "}
 							</span>
 							<span className='postDate'>
 								Updated: {moment(post.updatedAt).fromNow()}
 							</span>
-							<button className="deleteButton" onClick={handleDelete}>Delete</button>
-							{/* <Link to={`/api/users/${userId}/post/${post._id}`}><h1>Update</h1></Link> */}
-							<button className="updateButton" onClick={() => setIsUpdate(true)}>Update</button>
+							{allowUpdate &&
+								<div className="updateDeleteButtons">
+									<button className="deleteButton" onClick={handleDelete}>Delete</button>
+									<button className="updateButton" onClick={() => setIsUpdate(true)}>Update</button>
+
+								</div>
+							}
 							{isUpdate && (
 								<UpdatePostForm
-									posts={posts}
-									setPosts={setPosts}
 									user={user}
 									post={post}
 									handleUpdate={handleUpdate}
@@ -76,7 +82,6 @@ export default function Post({ user, post, setPosts, posts }) {
 									setPostData={setPostData}
 								/>
 							)}
-							{/* {console.log(isUpdate)} */}
 						</div>
 						<div className='postTopRight'>
 							<MoreVert />

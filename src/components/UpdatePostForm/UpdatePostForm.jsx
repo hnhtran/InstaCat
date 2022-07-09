@@ -5,8 +5,6 @@ import { useState } from "react"
 const UpdatePostForm = ({
 	user,
 	post,
-	setPosts,
-	posts,
 	handleUpdate,
 	postData,
 	setPostData,
