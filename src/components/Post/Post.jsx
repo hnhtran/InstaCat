@@ -28,8 +28,8 @@ export default function Post({ user, post, setPosts, posts }) {
 	}
 
 	const handleUpdate = async () => {
-		// console.log(postData)
-		await updatePost(postData)
+		const updatedPosts =  await updatePost(postData)
+		setPosts(updatedPosts)
 	}
 
 	const [like, setLike] = useState(0)
