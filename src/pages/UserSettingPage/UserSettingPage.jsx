@@ -61,6 +61,7 @@ export default function UserSettingPage({ user, setUser }) {
             // console.log("user", user);
             const newUser = await usersService.changePassword(user);
             setUser(newUser);
+            alert('Change password success');
         } catch {
             //   setError('Change username failed - Try Again');
             alert('Change password failed - Try Again');
