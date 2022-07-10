@@ -85,8 +85,6 @@ export default function NewPost({ user, post, setPost }) {
       </div>
       <h1>
       {isNewPostCreated ? 'post created' : 'no new post created yet'}
-      {/* {setIsNewPostCreated(false)} */}
-          {console.log(isNewPostCreated)}
       </h1>
       <div className="post">
         <div className="postWrapper">

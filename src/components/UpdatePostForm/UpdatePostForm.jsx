@@ -35,26 +35,25 @@ const UpdatePostForm = ({
 	}
 	return (
 		<>
-			<div className='newPosts' onSubmit={handleUpdate}>
+			<div onSubmit={handleUpdate}>
 				<form autoComplete='off'>
 					<div className='newPostsContainer'>
 						<div className='newPostsTop'>
-							<img className='postsProfileimg' src='' alt='Add Photo' />
 							<input
 								placeholder={post.description}
-								className='newPostInput'
+								// className='newPostInput'
 								type='text'
 								name='description'
 								value={postData.description}
 								onChange={handleChange}
 							/>
 						</div>
-						<hr className='newPostHr' />
-						<div className='newPostsBottom'>
+						{/* <hr className='newPostHr' /> */}
+						<p className='newPostsText'>Choose different image?</p>
+						<div>
 							<div className='newPostsOptions'>
 								<div className='option'>
 									{/* <AddAPhoto /> */}
-									<span className='newPostsText'>Different?</span>
 									<FileBase64
 										type='file'
 										multiple={false}
@@ -65,6 +64,7 @@ const UpdatePostForm = ({
 									/>
 								</div>
 							</div>
+							<img src={post.image} alt='' />
 							<button type='submit'>Edit this post?</button>
 						</div>
 					</div>

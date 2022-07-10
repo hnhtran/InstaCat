@@ -35,6 +35,7 @@ export default function Post({ user, post, setPost, setPosts, posts }) {
     event.preventDefault();
     const updatedPost = await updatePost(postData);
     setPost(updatedPost);
+	setIsUpdate(false);
   };
 
   const [like, setLike] = useState(0);
@@ -90,16 +91,6 @@ export default function Post({ user, post, setPost, setPosts, posts }) {
               <MoreVert />
             </div>
           </div>
-
-          {/* {isUpdate && (
-								<UpdatePostForm
-									user={user}
-									post={post}
-									handleUpdate={handleUpdate}
-									postData={postData}
-									setPostData={setPostData}
-								/>
-							)} */}
           {isUpdate ? (
 			<div>
 				<UpdatePostForm
