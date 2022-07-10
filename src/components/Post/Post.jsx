@@ -108,7 +108,7 @@ export default function Post({ user, post, setPost, setPosts, posts }) {
                 {post.description} <hr />
                 <br />
               </span>
-              <img alt="rascal" src={post.image} />
+              {post.image && <img alt="rascal" src={post.image} />}
             </div>
           )}
           {/* <div className='postCenter'>
