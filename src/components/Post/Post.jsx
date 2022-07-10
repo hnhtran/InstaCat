@@ -63,8 +63,8 @@ export default function Post({ user, post, setPost, setPosts, posts }) {
           <div className="postTop">
             <div className="postTopLeft">
               <div>
-                <Avatar alt="User profile image" src={user.avatar} />
-                <div className="postUsername">{user.name}</div>
+                <Avatar alt="User profile image" src={post.user.avatar} />
+                <div className="postUsername">{post.user.name}</div>
               </div>
               <span className="postDate">
                 Created: {new Date(post.createdAt).toLocaleDateString()}{" "}
