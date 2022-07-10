@@ -22,3 +22,7 @@ export function updatePost(postData) {
 export function deletePost(postData) {
     return sendRequest(`${BASE_URL}/${postData._id}`, 'DELETE', postData)
 }
+
+export function likePost(postData) {
+    return sendRequest(`${BASE_URL}/${postData._id}/like`, 'PUT', postData)
+}

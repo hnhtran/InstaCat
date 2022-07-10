@@ -9,7 +9,7 @@ const postSchema = mongoose.Schema(
 			required: true,
 		},
 		likes: {
-			type: Number,
+			type: [],
 			require: true,
 		},
 		description: {

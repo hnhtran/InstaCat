@@ -1,5 +1,5 @@
 import "./Post.css";
-import { updatePost, deletePost } from "../../utilities/posts-api";
+import { updatePost, deletePost, likePost } from "../../utilities/posts-api";
 import { MoreVert, Favorite } from "@mui/icons-material/";
 import moment from "moment";
 import { useState } from "react";
@@ -38,23 +38,45 @@ export default function Post({ user, post, setPost, setPosts, posts }) {
 	setIsUpdate(false);
   };
 
-  const [like, setLike] = useState(0);
+  // const [like, setLike] = useState(0);
+  // const [isLiked, setIsLiked] = useState(false);
+  // const likeHandler = () => {
+  //   setLike(isLiked ? like - 1 : like + 1);
+  //   setIsLiked(!isLiked);
+  // };
+
+  const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
-  const likeHandler = () => {
+  const likeHandler = async (event) => {
+    // console.log("likeHandler: ", like, isLiked);
+    event.preventDefault();
+      const postObj = {
+      _id: post._id,
+      user: user._id,
+    };
+    // console.log(postObj)
+    await likePost(postObj);
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
 
-  // const handleLike = () => {
-  // 	// console.log(`${userId}, ${postIdObj}`)
-  // 	userProfileAPI.likePost(userId, postIdObj)
-  // 	setPosts(posts.map(item => {
-  // 		if (item._id === post._id) {
-  // 			item.likes++
-  // 		}
-  // 		return item
-  // 	}))
+  // const [liked, setLiked] = useState(post.likes.includes(user._id))
+  // const [likes, setLikes] = useState(post.likes.length);
+  // console.log(post.likes.includes(user._id))
+  // const handleLike = async (event) => {
+  //   event.preventDefault();
+  //   const postObj = {
+  //     _id: post._id,
+  //     user: user._id,
+  //   };
+  //   console.log(postObj)
+  //   // const updatedPost = await likePost(postObj);
+  //   // setPost(updatedPost);
+  //   setLiked((prev) => !prev);
+  //   liked ? setLikes((prev) => prev - 1) : setLikes((prev) => prev + 1);
   // }
+
+  
 
   return (
     <>
@@ -123,6 +145,10 @@ export default function Post({ user, post, setPost, setPosts, posts }) {
               <Favorite onClick={likeHandler} />
               <span className="postFavorites">{like} people liked this</span>
             </div>
+            {/* <div className="postBottomLeft">
+              <Favorite onClick={handleLike} />
+              <span className="postFavorites">{post.likes.length} people liked this</span>
+            </div> */}
             <div className="postBottomRight">
               <span className="postComment">{post.comment}comments</span>
             </div>

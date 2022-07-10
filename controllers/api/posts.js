@@ -85,10 +85,12 @@ async function deletePost(req, res) {
 }
 // like or unlike a post
 async function likePost(req, res) {
-    const userId = req.user._id
-    const postId = req.params.id
+    // console.log(req.body)
+    const userId = req.body.user
+    const postId = req.body._id
     try {
         const post = await Post.findById(postId)
+        // console.log(post)
         // like: push, dislike: splice
         if (post.likes.includes(userId)) {
             const index = post.likes.indexOf(userId)
@@ -96,7 +98,9 @@ async function likePost(req, res) {
         } else {
             post.likes.push(userId)
         }
+        // post.likes=[]
         await post.save()
+        console.log(post.likes)
         res.json(post)
     } catch (err) {
         res.json(err)
