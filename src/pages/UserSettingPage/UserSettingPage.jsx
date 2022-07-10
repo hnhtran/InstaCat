@@ -7,6 +7,8 @@ import FileBase64 from "react-file-base64";
 export default function UserSettingPage({ user, setUser }) {
     const [userAvatar, setUserAvatar] = useState(user.avatar);
     const [username, setUsername] = useState(user.name);
+    const [changed, setChanged] = useState(false);
+
     const [passwords, setPasswords] = useState({
         oldPassword: "",
         newPassword: ""
@@ -23,6 +25,7 @@ export default function UserSettingPage({ user, setUser }) {
             user.avatar = userAvatar;
             const newUser = await usersService.changeAvatar(user)
             setUser(newUser)
+            setChanged(true)
         } catch (error) {
             console.log(error);
             alert('Change avatar failed -Try Again');
@@ -40,6 +43,7 @@ export default function UserSettingPage({ user, setUser }) {
             user.name = username; // update the username.
             const newUser = await usersService.changeUsername(user);
             setUser(newUser);
+            setChanged(true)
         } catch (error) {
             //   setError('Change username failed - Try Again');
             console.log("error: ", error);
@@ -50,7 +54,6 @@ export default function UserSettingPage({ user, setUser }) {
     function handleChangePassword(evt) {
         // console.log("new password: " + evt.target.value);
         setPasswords({ ...passwords, [evt.target.name]: evt.target.value });
-
     }
     async function handleSubmitPassword(evt) {
         evt.preventDefault();
@@ -61,7 +64,7 @@ export default function UserSettingPage({ user, setUser }) {
             // console.log("user", user);
             const newUser = await usersService.changePassword(user);
             setUser(newUser);
-            alert('Change password success');
+            setChanged(true)
         } catch {
             //   setError('Change username failed - Try Again');
             alert('Change password failed - Try Again');
@@ -80,12 +83,14 @@ export default function UserSettingPage({ user, setUser }) {
                     name='image'
                     onDone={handleChangeUserAvatar}
                 />
+                {changed && <p>Profile image changed</p>}
                 <button type="submit" >Submit</button>
             </form>
 
             <form autoComplete="off" className="form-username" onSubmit={handleSubmitUserName}>
                 <label>New Username</label>
                 <input type="text" placeholder="New username" name="username" value={username} onChange={handleChangeUserName} required />
+                {changed && <p>Profile image changed</p>}
                 <button type="submit" >Submit</button>
             </form>
             <form autoComplete="off" className="form-password" onSubmit={handleSubmitPassword}>
@@ -94,6 +99,7 @@ export default function UserSettingPage({ user, setUser }) {
                 <label>New password</label>
                 <input type="text" placeholder="New password" name="newPassword"
                     onChange={handleChangePassword} required />
+                {changed && <p>Password changed</p>}
                 <button type="submit" >Submit</button>
             </form>
             {/* add dummy space to overcome the sticky footer */}
