@@ -59,8 +59,8 @@ export default function Post({ user, post, setPost, setPosts, posts }) {
 					<div className='postTop'>
 						<div className='postTopLeft'>
 							<div>
-								<Avatar alt="User profile image" src={post.user.avatar} />
-								<div className='postUsername'>{post.user.name}</div>
+								<Avatar alt="User profile image" src={user.avatar} />
+								<div className='postUsername'>{user.name}</div>
 							</div>
 							<span className='postDate'>
 								Created: {new Date(post.createdAt).toLocaleDateString()}{" "}
@@ -72,7 +72,7 @@ export default function Post({ user, post, setPost, setPosts, posts }) {
 								<div className="updateDeleteButtons">
 									<button className="deleteButton" onClick={handleDelete}>Delete</button>
 									<button className="updateButton" onClick={() => setIsUpdate(true)}>Update</button>
-									{console.log("isUpdate: ", isUpdate)}
+									{/* {console.log("isUpdate: ", isUpdate)} */}
 								</div>
 							}
 							{isUpdate && (
