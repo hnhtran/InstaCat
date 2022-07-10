@@ -25,6 +25,7 @@ export default function UserSettingPage({ user, setUser }) {
             user.avatar = userAvatar;
             const newUser = await usersService.changeAvatar(user)
             setUser(newUser)
+            alert("Avatar changed!")
         } catch (error) {
             console.log(error);
             alert('Change avatar failed -Try Again');
@@ -42,6 +43,7 @@ export default function UserSettingPage({ user, setUser }) {
             user.name = username; // update the username.
             const newUser = await usersService.changeUsername(user);
             setUser(newUser);
+            alert("Username changed!");
         } catch (error) {
             //   setError('Change username failed - Try Again');
             console.log("error: ", error);
