@@ -21,6 +21,7 @@ As a user I want create cute posts of my cats and be able to share/see other peo
 * Nodejs
 * Javascript
 * CSS (Bootstrap)
+* Material-ui
 * HTML
 
 ## Wireframes
