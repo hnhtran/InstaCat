@@ -78,3 +78,36 @@
 	font-size: 20px;
 	font-weight: 900;
 }
+
+/* Extra small devices (phones, 600px and down)
+@media only screen and (max-width: 650px) {
+	.newPostsContainer {
+	width: 300px;
+	height: 200px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	margin: auto;
+	}
+}  */
+
+@media only screen and (max-width: 400px) {
+	.newPostsContainer {
+	width: 280px;
+	height: 200px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	margin: auto;
+	}
+	.footer{
+			background-color: #e2bf97;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			position: fixed;
+			bottom: 0;
+			margin: 0 auto;
+			gap: 0.1em;
+	}
+} 
