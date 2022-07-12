@@ -60,7 +60,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 2em;
+  margin: 0;
   position: relative;
 } 
 .cat-fact-button {
