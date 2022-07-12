@@ -92,5 +92,22 @@ img {
 		box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 		margin: auto;
 		max-width: 290px;
+		margin-top: 30px;
+	}
+
+	img {
+		max-width: 100%;
+		max-height: 300px;
+		height: auto;
+		width: 300px;
+		object-fit: cover;
+	}
+
+	.postDate {
+		font-size: 10px;
+	}
+
+	.dummy {
+		height: 70px
 	}
 } 

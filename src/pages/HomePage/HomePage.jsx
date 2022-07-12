@@ -10,6 +10,7 @@ export default function Home({user, post, setPost}) {
       <div className="home">
         <Sidebar />
         <Feed user={user} post={post} setPost={setPost}/>
+        <div className="dummy" />
       </div>
       
     </>
