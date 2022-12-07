@@ -1,16 +1,9 @@
 {
   "name": "instacat",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "main": "server.js",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.8.7",
-    "@mui/styled-engine-sc": "^5.8.0",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
@@ -19,14 +12,11 @@
     "moment": "^2.29.4",
     "mongoose": "^6.4.2",
     "morgan": "^1.10.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-file-base64": "^1.0.3",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "serve-favicon": "^2.5.0",
-    "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0",
+    "nodemon": "^2.0.19"
   },
   "scripts": {
     "start": "node server.js",
@@ -34,28 +24,6 @@
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "proxy": "http://localhost:3001"
+    "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  }
 }
