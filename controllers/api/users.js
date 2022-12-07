@@ -14,6 +14,7 @@ module.exports = {
 
 // login
 async function login(req, res) {
+    console.log(req)
     try {
         const user = await User.findOne({ email: req.body.email })
         // check user and password exist or not
