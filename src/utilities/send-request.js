@@ -11,6 +11,7 @@ export default async function sendRequest(url, method = "GET", payload = null) {
   }
   const res = await fetch(url, options);
   console.log(res)
+  console.log(payload)
 
   //res.ok will be false if the status code is set to 4xx in the controller action
   // this is if else statement, if res.ok, send res.json(), else throw error
